@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://capn3kwjarjr5"]
+
+[ext_resource type="Texture2D" uid="uid://bdk8jm0gey3q3" path="res://Texture/T_Wallt.png" id="1_lcv6a"]
+
+[resource]
+albedo_texture = ExtResource("1_lcv6a")
+metallic_specular = 0.0
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 2.16
+emission_texture = ExtResource("1_lcv6a")
+uv1_scale = Vector3(1, 3, 1)

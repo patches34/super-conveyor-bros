@@ -24,6 +24,6 @@ signal scroll_changed(scroll_delta: float)
 
 
 func _on_scroll(value):
-	#print(value);
+	print(value);
 	belt_texture.uv1_offset.x += value * scroll_speed;
 	bard_texture.uv1_offset.x += value * scroll_speed;

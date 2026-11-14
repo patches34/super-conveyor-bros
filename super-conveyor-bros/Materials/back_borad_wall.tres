@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b5blf8kn8ct6w"]
+
+[ext_resource type="Texture2D" uid="uid://0n0vc3ko802v" path="res://Texture/T_BackBoradWallt.png" id="1_8efvj"]
+
+[resource]
+albedo_texture = ExtResource("1_8efvj")
+metallic_specular = 0.0
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 1.72
+emission_texture = ExtResource("1_8efvj")
+uv1_triplanar = true

@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cm0d4744rlxmx"]
+
+[ext_resource type="PackedScene" uid="uid://d4k0lg4gcwunb" path="res://Prefabs/input.tscn" id="4_kx5y6"]
+[ext_resource type="PackedScene" uid="uid://brgqh41lu0bse" path="res://Prefabs/Belt.tscn" id="4_my5lr"]
+[ext_resource type="PackedScene" uid="uid://b7fjsrxcm1wig" path="res://Prefabs/item.tscn" id="5_l7hhh"]
+[ext_resource type="PackedScene" uid="uid://benvrdli7tdwe" path="res://Prefabs/item_spawn.tscn" id="5_xmtf4"]
+[ext_resource type="Material" uid="uid://capn3kwjarjr5" path="res://Materials/wall.tres" id="6_8601y"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_y3e6f"]
+
+[node name="MovementTest" type="Node3D" unique_id=1504819680]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=97632224]
+transform = Transform3D(1, 0, 0, 0, 0.96814764, 0.25038, 0, -0.25038, 0.96814764, 0, 4.515, 10.99)
+projection = 1
+fov = 143.6
+size = 21.809
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=312652229]
+transform = Transform3D(1, 0, 0, 0, 0.93481517, 0.35513458, 0, -0.35513458, 0.93481517, 0, 1.9889195, 4.9511476)
+
+[node name="Belt" parent="." unique_id=1348700459 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 4.55, 0)
+
+[node name="Belt4" parent="Belt" unique_id=915165887 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 0)
+
+[node name="Belt7" parent="Belt" unique_id=237952539 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 0)
+
+[node name="Belt10" parent="Belt" unique_id=1150715829 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
+
+[node name="Belt13" parent="Belt" unique_id=1430979423 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
+
+[node name="Belt4" parent="." unique_id=800568804 instance=ExtResource("4_my5lr")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -2.1, 0)
+
+[node name="Belt4" parent="Belt4" unique_id=1076784002 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 0)
+
+[node name="Belt7" parent="Belt4" unique_id=1233273225 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 0)
+
+[node name="Belt10" parent="Belt4" unique_id=558256583 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
+
+[node name="Belt13" parent="Belt4" unique_id=1495526059 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
+
+[node name="Belt5" parent="." unique_id=107658609 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -8.75, 0)
+
+[node name="Belt4" parent="Belt5" unique_id=1555931196 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 0)
+
+[node name="Belt7" parent="Belt5" unique_id=492379426 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 0)
+
+[node name="Belt10" parent="Belt5" unique_id=610856584 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
+
+[node name="Belt13" parent="Belt5" unique_id=610201101 instance=ExtResource("4_my5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
+
+[node name="Item" parent="." unique_id=428435005 instance=ExtResource("5_l7hhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.493, 0)
+move_speed = 0.054
+
+[node name="Wall" type="MeshInstance3D" parent="." unique_id=205784542]
+transform = Transform3D(29.9687, 0, 0, 0, 19.977707, 0, 0, 0, 1, 0, 0, -4)
+material_override = ExtResource("6_8601y")
+mesh = SubResource("QuadMesh_y3e6f")
+
+[node name="Input" parent="." unique_id=1280705331 instance=ExtResource("4_kx5y6")]
+scroll_speed = 0.03
+
+[node name="ItemSpawn" parent="." unique_id=921366110 instance=ExtResource("5_xmtf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.469585, 6.483108, 0)
+
+[connection signal="scroll_changed" from="Input" to="Item" method="_on_scroll"]
