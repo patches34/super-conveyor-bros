@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://c4knh7dlrr7oe" path="res://Materials/t_belt.tres" id="2_5jxyi"]
 [ext_resource type="PackedScene" uid="uid://brgqh41lu0bse" path="res://Prefabs/Belt.tscn" id="2_m2jms"]
 [ext_resource type="Material" uid="uid://dxwff8t2me7cp" path="res://Materials/t_belt_bars.tres" id="3_tuftd"]
+[ext_resource type="PackedScene" uid="uid://b7fjsrxcm1wig" path="res://Prefabs/item.tscn" id="5_5jxyi"]
 
 [node name="MovementTest" type="Node3D" unique_id=1504819680]
 script = ExtResource("1_lcbp4")
@@ -18,8 +19,14 @@ transform = Transform3D(1, 0, 0, 0, 0.96814764, 0.25038, 0, -0.25038, 0.96814764
 transform = Transform3D(1, 0, 0, 0, 0.93481517, 0.35513458, 0, -0.35513458, 0.93481517, 0, 1.9889195, 4.9511476)
 
 [node name="Belt" parent="." unique_id=1348700459 instance=ExtResource("2_m2jms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4168768, 0, 0)
 
 [node name="Belt2" parent="." unique_id=1920242894 instance=ExtResource("2_m2jms")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6586969, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3112855, 0, 0)
+
+[node name="Item" parent="." unique_id=428435005 instance=ExtResource("5_5jxyi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.493, 0)
+move_speed = 0.054
 
 [connection signal="scroll_changed" from="." to="." method="_on_scroll"]
+[connection signal="scroll_changed" from="." to="Item" method="_on_scroll"]

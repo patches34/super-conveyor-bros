@@ -3,6 +3,8 @@ var health: int
 var floating_text_prefab = preload("res://Prefabs/floating_text.tscn")
 var timer: float = 0.2
 
+@export var move_speed: float = 2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health = 100
@@ -31,3 +33,7 @@ func reduce_health(delta: int) -> void:
 	
 	if health < 0:
 		queue_free()
+
+func _on_scroll(value):
+	print(value * move_speed)
+	position += Vector3(value * move_speed, 0, 0);

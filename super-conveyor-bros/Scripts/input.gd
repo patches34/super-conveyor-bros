@@ -16,14 +16,14 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scroll_up"):
-		scroll_changed.emit(event.factor * scroll_speed);
+		scroll_changed.emit(event.factor);
 	elif event.is_action_pressed("scroll_down"):
-		scroll_changed.emit(-(event.factor * scroll_speed));
+		scroll_changed.emit(-(event.factor));
 
 signal scroll_changed(scroll_delta: float)
 
 
 func _on_scroll(value):
-	print(value);
-	belt_texture.uv1_offset.x += value;
-	bard_texture.uv1_offset.x += value;
+	#print(value);
+	belt_texture.uv1_offset.x += value * scroll_speed;
+	bard_texture.uv1_offset.x += value * scroll_speed;
