@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d0t6tyels0dhd"]
+
+[ext_resource type="Texture2D" uid="uid://c7jaejyn8njcj" path="res://SpriteAnim/Punch.png" id="1_wa8su"]
+[ext_resource type="Texture2D" uid="uid://dvxv6d04lqqng" path="res://SpriteAnim/VFX_Punch.png" id="2_3tmkp"]
+
+[node name="Puncher" type="Node3D" unique_id=646209255]
+
+[node name="Body" type="Sprite3D" parent="." unique_id=39387906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+texture = ExtResource("1_wa8su")
+hframes = 7
+
+[node name="VFX" type="Sprite3D" parent="." unique_id=1873645768]
+texture = ExtResource("2_3tmkp")
+hframes = 4
