@@ -1,5 +1,7 @@
 extends Node
 
+var scroll_speed: float = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,9 +13,9 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scroll_up"):
-		scroll_changed.emit(event.factor);
+		scroll_changed.emit(event.factor * scroll_speed);
 	elif event.is_action_pressed("scroll_down"):
-		scroll_changed.emit(-event.factor);
+		scroll_changed.emit(-(event.factor * scroll_speed));
 
 signal scroll_changed(scroll_delta: float)
 
