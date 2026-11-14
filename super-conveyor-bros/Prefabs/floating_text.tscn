@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dpo67fu4xy8vl"]
+
+[ext_resource type="Script" uid="uid://b22ie36486862" path="res://Scripts/floating_text.gd" id="1_cif0v"]
+
+[node name="FloatingText" type="Node3D" unique_id=1426588913]
+script = ExtResource("1_cif0v")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1438654409]
