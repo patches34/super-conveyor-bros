@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://b7fjsrxcm1wig" path="res://Prefabs/item.tscn" id="5_l7hhh"]
 [ext_resource type="PackedScene" uid="uid://benvrdli7tdwe" path="res://Prefabs/item_spawn.tscn" id="5_xmtf4"]
 [ext_resource type="Material" uid="uid://capn3kwjarjr5" path="res://Materials/wall.tres" id="6_8601y"]
+[ext_resource type="PackedScene" uid="uid://3ocuibmw4jbr" path="res://Prefabs/item_capture.tscn" id="6_b362e"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_y3e6f"]
 
-[node name="MovementTest" type="Node3D" unique_id=1504819680]
+[node name="Baker Level" type="Node3D" unique_id=1504819680]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=97632224]
 transform = Transform3D(1, 0, 0, 0, 0.96814764, 0.25038, 0, -0.25038, 0.96814764, 0, 4.515, 10.99)
@@ -33,6 +34,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
 
 [node name="Belt13" parent="Belt" unique_id=1430979423 instance=ExtResource("4_my5lr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
+
+[node name="ItemSpawn" parent="Belt" unique_id=921366110 node_paths=PackedStringArray("scroll_signal") instance=ExtResource("5_xmtf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4270763, 0.46924257, 0)
+scroll_signal = NodePath("../../Input")
 
 [node name="Belt4" parent="." unique_id=800568804 instance=ExtResource("4_my5lr")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -2.1, 0)
@@ -64,8 +69,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
 [node name="Belt13" parent="Belt5" unique_id=610201101 instance=ExtResource("4_my5lr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
+[node name="ItemCapture" parent="Belt5" unique_id=48923668 instance=ExtResource("6_b362e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 0)
+
 [node name="Item" parent="." unique_id=428435005 instance=ExtResource("5_l7hhh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.493, 0)
 
 [node name="Wall" type="MeshInstance3D" parent="." unique_id=205784542]
 transform = Transform3D(29.9687, 0, 0, 0, 19.977707, 0, 0, 0, 1, 0, 0, -4)
@@ -74,9 +81,5 @@ mesh = SubResource("QuadMesh_y3e6f")
 
 [node name="Input" parent="." unique_id=1280705331 instance=ExtResource("4_kx5y6")]
 scroll_speed = 0.03
-
-[node name="ItemSpawn" parent="." unique_id=921366110 node_paths=PackedStringArray("scroll_signal") instance=ExtResource("5_xmtf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.469585, 6.483108, 0)
-scroll_signal = NodePath("../Input")
 
 [connection signal="scroll_changed" from="Input" to="Item" method="_on_scroll"]
