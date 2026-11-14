@@ -11,3 +11,5 @@ script = ExtResource("1_qjvh7")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2070660572]
 material_override = ExtResource("1_epbfd")
 mesh = SubResource("BoxMesh_y3e6f")
+
+[connection signal="scroll_changed" from="." to="." method="_on_scroll"]
