@@ -20,14 +20,10 @@ func _input(event: InputEvent) -> void:
 		on_spawn()
 
 func on_spawn():
-	
-	print("spawn")
 	var instance:Item = item_prefab.instantiate()
 	
 	scroll_signal.scroll_changed.connect(instance._on_scroll)
 	
 	add_child(instance)
-	
-	
 	
 	instance.global_position = global_position + spawn_point

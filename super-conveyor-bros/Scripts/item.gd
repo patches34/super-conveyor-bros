@@ -36,5 +36,9 @@ func reduce_health(delta: int) -> void:
 		queue_free()
 
 func _on_scroll(value):
-	print(value * move_speed)
+	#print(value * move_speed)
 	position += Vector3(value * move_speed, 0, 0);
+
+func _on_capture():
+	print("been captured")
+	queue_free()
