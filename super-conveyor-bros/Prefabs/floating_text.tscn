@@ -7,7 +7,7 @@
 script = ExtResource("1_cif0v")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1438654409]
-pixel_size = 0.002
+pixel_size = 0.003
 text = "123"
 font = ExtResource("2_b2aiq")
 font_size = 100

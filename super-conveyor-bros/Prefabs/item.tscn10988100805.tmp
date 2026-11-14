@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b7fjsrxcm1wig"]
+
+[ext_resource type="FontFile" uid="uid://b2qpofvcgi2vf" path="res://Fonts/PressStart2P-Regular.ttf" id="1_8fih3"]
+[ext_resource type="Script" uid="uid://damrqpoao5n2w" path="res://Scripts/item.gd" id="1_okjcq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_srkpw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_srkpw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfdjl"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[node name="Item" type="Area3D" unique_id=428435005]
+script = ExtResource("1_okjcq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=213196976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_srkpw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1576972273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_srkpw")
+surface_material_override/0 = SubResource("StandardMaterial3D_tfdjl")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=696634058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.6)
+pixel_size = 0.0025
+text = "100"
+font = ExtResource("1_8fih3")
+font_size = 100
+outline_size = 25
