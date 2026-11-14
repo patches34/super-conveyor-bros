@@ -66,7 +66,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
 [node name="Item" parent="." unique_id=428435005 instance=ExtResource("5_l7hhh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.493, 0)
-move_speed = 0.054
 
 [node name="Wall" type="MeshInstance3D" parent="." unique_id=205784542]
 transform = Transform3D(29.9687, 0, 0, 0, 19.977707, 0, 0, 0, 1, 0, 0, -4)
@@ -76,7 +75,8 @@ mesh = SubResource("QuadMesh_y3e6f")
 [node name="Input" parent="." unique_id=1280705331 instance=ExtResource("4_kx5y6")]
 scroll_speed = 0.03
 
-[node name="ItemSpawn" parent="." unique_id=921366110 instance=ExtResource("5_xmtf4")]
+[node name="ItemSpawn" parent="." unique_id=921366110 node_paths=PackedStringArray("scroll_signal") instance=ExtResource("5_xmtf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.469585, 6.483108, 0)
+scroll_signal = NodePath("../Input")
 
 [connection signal="scroll_changed" from="Input" to="Item" method="_on_scroll"]

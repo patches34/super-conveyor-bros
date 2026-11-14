@@ -1,3 +1,4 @@
+class_name Scrol_Input
 extends Node
 
 @export var scroll_speed: float = 1

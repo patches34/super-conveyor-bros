@@ -1,9 +1,10 @@
+class_name Item
 extends Node3D
 var health: int
 var floating_text_prefab = preload("res://Prefabs/floating_text.tscn")
 var timer: float = 0.2
 
-@export var move_speed: float = 2
+@export var move_speed: float = 0.054
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
