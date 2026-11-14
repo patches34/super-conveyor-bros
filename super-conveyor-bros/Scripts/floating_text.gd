@@ -7,15 +7,19 @@ var fade_time:float = 0.1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	begin_effect(5, Vector3(-1, 3, 0), 0.6)
 	pass
 
-func begin_effect(num: int, dir: Vector3, duration: float) -> void:
+func _begin_effect(num: int, dir: Vector3, duration: float) -> void:
 	$Label3D.text = str(num)
 	velocity = dir
 	time = duration
-	
-	
+
+func begin(num: int) -> void:
+	var rng = RandomNumberGenerator.new()
+	_begin_effect(num, 
+		Vector3(rng.randf_range(-1, 1), 
+		rng.randf_range(2.5, 3.5), 0), 
+		0.6)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://dfoq2iatuls1"]
 
-[ext_resource type="PackedScene" uid="uid://dpo67fu4xy8vl" path="res://Prefabs/floating_text.tscn" id="1_qvnqx"]
 [ext_resource type="PackedScene" uid="uid://b7fjsrxcm1wig" path="res://Prefabs/item.tscn" id="1_ue12b"]
 
 [node name="Test" type="Node3D" unique_id=1753287338]
-
-[node name="FloatingText" parent="." unique_id=1426588913 instance=ExtResource("1_qvnqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.218645, 0.97632945, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=36377627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7569618, 3.7819505)
