@@ -1,6 +1,6 @@
 extends Node
 
-var scroll_speed: float = 1
+@export var scroll_speed: float = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +18,3 @@ func _input(event: InputEvent) -> void:
 		scroll_changed.emit(-(event.factor * scroll_speed));
 
 signal scroll_changed(scroll_delta: float)
-
-func _on_scroll(value):
-	print("scoll : ", value);
