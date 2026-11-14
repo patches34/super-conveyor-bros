@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://brgqh41lu0bse"]
+
+[ext_resource type="Material" uid="uid://ba6l0pjgqov36" path="res://Materials/belt_material_3d.tres" id="1_epbfd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_epbfd"]
+
+[node name="Belt" type="MeshInstance3D" unique_id=1016849604]
+material_override = ExtResource("1_epbfd")
+mesh = SubResource("BoxMesh_epbfd")

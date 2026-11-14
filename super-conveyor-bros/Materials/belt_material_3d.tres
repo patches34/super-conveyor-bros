@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ba6l0pjgqov36"]
+
+[ext_resource type="Texture2D" uid="uid://dqcgn36w8hcqo" path="res://Images/metall_pattern_for_webdesigner_by_thousandhands_d1bjwa6-fullview.jpg" id="1_5hx3t"]
+
+[resource]
+albedo_texture = ExtResource("1_5hx3t")
