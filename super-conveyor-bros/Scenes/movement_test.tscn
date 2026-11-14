@@ -7,7 +7,7 @@
 
 [node name="MovementTest" type="Node3D" unique_id=1504819680]
 script = ExtResource("1_lcbp4")
-scroll_speed = 0.1
+scroll_speed = 0.03
 belt_texture = ExtResource("2_5jxyi")
 bard_texture = ExtResource("3_tuftd")
 
