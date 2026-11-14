@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c4knh7dlrr7oe"]
+
+[ext_resource type="Texture2D" uid="uid://ymj7msp4fvlf" path="res://Texture/T_Belt.png" id="1_3wqmp"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_3wqmp")
+uv1_scale = Vector3(1, 1.03, 1)
+uv1_offset = Vector3(0, -0.015, 0)

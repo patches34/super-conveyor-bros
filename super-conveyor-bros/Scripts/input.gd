@@ -2,6 +2,9 @@ extends Node
 
 @export var scroll_speed: float = 1
 
+@export var belt_texture:StandardMaterial3D
+@export var bard_texture:StandardMaterial3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -18,3 +21,9 @@ func _input(event: InputEvent) -> void:
 		scroll_changed.emit(-(event.factor * scroll_speed));
 
 signal scroll_changed(scroll_delta: float)
+
+
+func _on_scroll(value):
+	print(value);
+	belt_texture.uv1_offset.x += value;
+	bard_texture.uv1_offset.x += value;

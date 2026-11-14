@@ -1,18 +1,25 @@
 [gd_scene format=3 uid="uid://botunqeuvd1dk"]
 
 [ext_resource type="Script" uid="uid://db4f4a38k4le1" path="res://Scripts/input.gd" id="1_lcbp4"]
+[ext_resource type="Material" uid="uid://c4knh7dlrr7oe" path="res://Materials/t_belt.tres" id="2_5jxyi"]
 [ext_resource type="PackedScene" uid="uid://brgqh41lu0bse" path="res://Prefabs/Belt.tscn" id="2_m2jms"]
+[ext_resource type="Material" uid="uid://dxwff8t2me7cp" path="res://Materials/t_belt_bars.tres" id="3_tuftd"]
 
 [node name="MovementTest" type="Node3D" unique_id=1504819680]
 script = ExtResource("1_lcbp4")
-scroll_speed = 0.01
+scroll_speed = 0.1
+belt_texture = ExtResource("2_5jxyi")
+bard_texture = ExtResource("3_tuftd")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=97632224]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4775102)
+transform = Transform3D(1, 0, 0, 0, 0.96814764, 0.25038, 0, -0.25038, 0.96814764, 0, 2.445, 3.498)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=312652229]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.9511476)
+transform = Transform3D(1, 0, 0, 0, 0.93481517, 0.35513458, 0, -0.35513458, 0.93481517, 0, 1.9889195, 4.9511476)
 
 [node name="Belt" parent="." unique_id=1348700459 instance=ExtResource("2_m2jms")]
 
-[connection signal="scroll_changed" from="." to="Belt" method="_on_scroll"]
+[node name="Belt2" parent="." unique_id=1920242894 instance=ExtResource("2_m2jms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6586969, 0)
+
+[connection signal="scroll_changed" from="." to="." method="_on_scroll"]
