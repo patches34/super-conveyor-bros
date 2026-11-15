@@ -1,4 +1,6 @@
 extends Node3D
+signal break_over
+
 var body_animator:AnimatedSprite3D
 var vfx_animator:AnimatedSprite3D
 var break_animator:AnimatedSprite3D
@@ -21,6 +23,7 @@ func _ready() -> void:
 	body_animator = $Body
 	vfx_animator = $VFX
 	impact_area = $Area3D
+	break_animator = $Break
 	body_animator.play()
 	vfx_animator.play()
 	break_animator.visible = false
@@ -54,13 +57,13 @@ func modify_speed(new_speed: float) -> void:
 	state_tween.tween_property($Body, "speed_scale", new_speed, 0.5)
 	
 	if new_speed == 0:
-		state_tween.callback()
+		state_tween.tween_callback(handle_going_away)
 
 func set_vfx_active(state:bool) -> void:
 	vfx_animator.visible = state
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area is Item:
+	if area is Item && body_animator.visible:
 		obj_below = area
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
@@ -68,9 +71,21 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		obj_below = null
 
 func set_random_bro_state() -> void:
-	bro_state = (Enums.BroStates.values()
+	var next_state = (Enums.BroStates.values()
 		.filter(func(s): return s != bro_state).pick_random())
-	#print(Enums.BroStates.keys()[bro_state])
+	
+	if bro_state == Enums.BroStates.away && next_state != Enums.BroStates.away:
+		break_animator.visible = false
+		break_animator.frame = 0
+		body_animator.frame = 0
+		vfx_animator.frame = 0
+		body_animator.visible = true
+		break_animator.stop()
+		body_animator.play()
+		break_over.emit()
+		
+	bro_state = next_state
+	
 	match bro_state:
 		Enums.BroStates.away:
 			modify_speed(0)
@@ -80,3 +95,11 @@ func set_random_bro_state() -> void:
 			modify_speed(0.75)
 		Enums.BroStates.fast:
 			modify_speed(2)
+
+func handle_going_away() -> void:
+	vfx_animator.visible = false
+	vfx_animator.stop()
+	body_animator.visible = false
+	body_animator.stop()
+	break_animator.visible = true
+	break_animator.play()
