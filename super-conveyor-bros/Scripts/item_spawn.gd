@@ -6,6 +6,9 @@ extends Node3D
 
 @export var scroll_signal:Scrol_Input
 
+@export var belt_index: int = 0
+@export var level_man:LevelManager
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -24,6 +27,11 @@ func on_spawn():
 	
 	scroll_signal.scroll_changed.connect(instance._on_scroll)
 	
+	
+	instance.active_index = belt_index
+	instance.belt_man = level_man
+	
 	add_child(instance)
 	
 	instance.global_position = global_position + spawn_point
+	

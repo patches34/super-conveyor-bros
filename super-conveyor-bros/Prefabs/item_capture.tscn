@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3ocuibmw4jbr"]
 
-[ext_resource type="Script" uid="uid://djqaysv8q7mb5" path="res://Prefabs/item_capture.gd" id="1_gblma"]
+[ext_resource type="Script" uid="uid://djqaysv8q7mb5" path="res://Scripts/item_capture.gd" id="1_gblma"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_y3e6f"]
 

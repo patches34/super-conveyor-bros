@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cwkkxp25du8od"]
+
+[ext_resource type="Script" uid="uid://ccljmw6i3khwx" path="res://Scripts/item_warp.gd" id="1_0wn74"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y3e6f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3e6f"]
+
+[node name="Item Warp" type="Node3D" unique_id=48923668]
+script = ExtResource("1_0wn74")
+set_point = Vector3(0, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1151229193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_y3e6f")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=1510218191]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=226135912]
+shape = SubResource("BoxShape3D_y3e6f")
+
+[connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_exited"]

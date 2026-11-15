@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cm0d4744rlxmx"]
 
+[ext_resource type="PackedScene" uid="uid://cwkkxp25du8od" path="res://Prefabs/item_warp.tscn" id="3_b362e"]
 [ext_resource type="PackedScene" uid="uid://d4k0lg4gcwunb" path="res://Prefabs/input.tscn" id="4_kx5y6"]
 [ext_resource type="PackedScene" uid="uid://brgqh41lu0bse" path="res://Prefabs/Belt.tscn" id="4_my5lr"]
-[ext_resource type="PackedScene" uid="uid://b7fjsrxcm1wig" path="res://Prefabs/item.tscn" id="5_l7hhh"]
 [ext_resource type="PackedScene" uid="uid://benvrdli7tdwe" path="res://Prefabs/item_spawn.tscn" id="5_xmtf4"]
 [ext_resource type="Material" uid="uid://capn3kwjarjr5" path="res://Materials/wall.tres" id="6_8601y"]
 [ext_resource type="PackedScene" uid="uid://3ocuibmw4jbr" path="res://Prefabs/item_capture.tscn" id="6_b362e"]
@@ -36,8 +36,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
 [node name="ItemSpawn" parent="Belt" unique_id=921366110 node_paths=PackedStringArray("scroll_signal") instance=ExtResource("5_xmtf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4270763, 0.46924257, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.469, 0)
+spawn_point = Vector3(1.1, 0, 0)
 scroll_signal = NodePath("../../Input")
+
+[node name="Item Warp T" parent="Belt" unique_id=48923668 instance=ExtResource("3_b362e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.25543, 0.5, 0)
+set_point = Vector3(-1.1, 0, 0)
 
 [node name="Belt4" parent="." unique_id=800568804 instance=ExtResource("4_my5lr")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -2.1, 0)
@@ -54,6 +59,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
 [node name="Belt13" parent="Belt4" unique_id=1495526059 instance=ExtResource("4_my5lr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
+[node name="Item Warp M1" parent="Belt4" unique_id=762116490 instance=ExtResource("3_b362e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3999996, 0.5, 0)
+set_point = Vector3(-1.1, 0, 0)
+
+[node name="Item Warp M2" parent="Belt4" unique_id=552933778 instance=ExtResource("3_b362e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.385368, 0.5, 0)
+set_point = Vector3(1.1, 0, 0)
+
 [node name="Belt5" parent="." unique_id=107658609 instance=ExtResource("4_my5lr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -8.75, 0)
 
@@ -69,10 +82,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
 [node name="Belt13" parent="Belt5" unique_id=610201101 instance=ExtResource("4_my5lr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
-[node name="ItemCapture" parent="Belt5" unique_id=48923668 instance=ExtResource("6_b362e")]
+[node name="ItemCapture" parent="Belt5" unique_id=192901402 instance=ExtResource("6_b362e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 0)
 
-[node name="Item" parent="." unique_id=428435005 instance=ExtResource("5_l7hhh")]
+[node name="Item Warp B" parent="Belt5" unique_id=1425408663 instance=ExtResource("3_b362e")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3853683, 0.3081932, 0)
+set_point = Vector3(1.1, 0, 0)
 
 [node name="Wall" type="MeshInstance3D" parent="." unique_id=205784542]
 transform = Transform3D(29.9687, 0, 0, 0, 19.977707, 0, 0, 0, 1, 0, 0, -4)
@@ -82,4 +97,7 @@ mesh = SubResource("QuadMesh_y3e6f")
 [node name="Input" parent="." unique_id=1280705331 instance=ExtResource("4_kx5y6")]
 scroll_speed = 0.03
 
-[connection signal="scroll_changed" from="Input" to="Item" method="_on_scroll"]
+[connection signal="item_warped" from="Belt/Item Warp T" to="Belt4/Item Warp M1" method="_on_item_warped"]
+[connection signal="item_warped" from="Belt4/Item Warp M1" to="Belt/Item Warp T" method="_on_item_warped"]
+[connection signal="item_warped" from="Belt4/Item Warp M2" to="Belt5/Item Warp B" method="_on_item_warped"]
+[connection signal="item_warped" from="Belt5/Item Warp B" to="Belt4/Item Warp M2" method="_on_item_warped"]

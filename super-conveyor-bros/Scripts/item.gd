@@ -4,7 +4,12 @@ var health: int
 var floating_text_prefab = preload("res://Prefabs/floating_text.tscn")
 var timer: float = 0.2
 
+var move_dir:int = 1;
+
 @export var move_speed: float = 0.054
+
+@export var belt_man: LevelManager
+@export var active_index: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,7 +45,8 @@ func reduce_health(delta: int) -> void:
 
 func _on_scroll(value):
 	#print(value * move_speed)
-	position += Vector3(value * move_speed, 0, 0);
+	if (belt_man.current_index == active_index):
+		position += Vector3(value * move_speed * move_dir, 0, 0);
 
 func _on_capture():
 	print("been captured")
