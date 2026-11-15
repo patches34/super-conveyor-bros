@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cwyyfxhnrrfef"]
 
+[ext_resource type="Script" uid="uid://cx7veo6q2f5rk" path="res://Scripts/game_ui_manager.gd" id="1_weo7u"]
 [ext_resource type="Texture2D" uid="uid://ly7jrplt86ky" path="res://Texture/T_BaseArrow.png" id="1_xd705"]
 [ext_resource type="FontFile" uid="uid://b2qpofvcgi2vf" path="res://Fonts/PressStart2P-Regular.ttf" id="2_ykg4x"]
 [ext_resource type="Texture2D" uid="uid://dfgceuuh0hpdq" path="res://Texture/T_BaseEnemyEnergy.png" id="3_srcu5"]
@@ -9,13 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://dfx0xu1rqb4w0" path="res://Texture/T_BaseEnemyMaskV2.png" id="7_oaevd"]
 [ext_resource type="Texture2D" uid="uid://ww33gn3hxi8b" path="res://Texture/T_BaseICON.png" id="8_oaevd"]
 
-[node name="UI" type="Control" unique_id=767468236]
+[node name="UI" type="Control" unique_id=767468236 node_paths=PackedStringArray("enemy_bar", "hero_bar", "buckets")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_weo7u")
+enemy_bar = NodePath("Battle - Panel2/Enemy - Panel/TextureProgressBar")
+hero_bar = NodePath("Battle - Panel2/Player - Panel2/TextureProgressBar2")
+buckets = [NodePath("Battle - Panel2/Panel/HBoxContainer/Bucket - TextureRect5/TextureRect5"), NodePath("Battle - Panel2/Panel/HBoxContainer/Bucket - TextureRect4/TextureRect4"), NodePath("Battle - Panel2/Panel/HBoxContainer/Bucket - TextureRect3/TextureRect3"), NodePath("Battle - Panel2/Panel/HBoxContainer/Bucket - TextureRect2/TextureRect2"), NodePath("Battle - Panel2/Panel/HBoxContainer/Bucket - TextureRect/TextureRect")]
 
 [node name="Lookup -Panel" type="Panel" parent="." unique_id=1079343322]
 self_modulate = Color(1, 1, 1, 0)
@@ -166,6 +171,7 @@ texture_over = ExtResource("3_srcu5")
 texture_progress = ExtResource("4_xd705")
 
 [node name="TextureRect" type="TextureRect" parent="Battle - Panel2/Enemy - Panel" unique_id=614934497]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
@@ -201,6 +207,7 @@ texture_over = ExtResource("6_srcu5")
 texture_progress = ExtResource("7_oaevd")
 
 [node name="TextureRect" type="TextureRect" parent="Battle - Panel2/Player - Panel2" unique_id=717986349]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.8
@@ -274,6 +281,7 @@ texture = ExtResource("8_oaevd")
 expand_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="Battle - Panel2/Panel/HBoxContainer/Bucket - TextureRect3" unique_id=1010741613]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
