@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://1p0n2lsum8ki"]
+
+[ext_resource type="Texture2D" uid="uid://dfx0xu1rqb4w0" path="res://Texture/T_BaseEnemyMaskV2.png" id="1_yho2m"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 0, 1, 1)
+albedo_texture = ExtResource("1_yho2m")
+metallic_specular = 0.0
+roughness = 0.0
