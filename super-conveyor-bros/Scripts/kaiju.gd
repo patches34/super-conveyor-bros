@@ -37,7 +37,7 @@ func consume_item(item_health_remaining:int) -> void:
 	elif item_health_remaining >= 6 && item_health_remaining <= 20:
 		gain_energy(4)
 	elif item_health_remaining >= 21 && item_health_remaining <= 50:
-		gain_energy(1)
+		gain_energy(10)
 	
 func gain_energy(added_energy: float) -> void:
 	energy += added_energy

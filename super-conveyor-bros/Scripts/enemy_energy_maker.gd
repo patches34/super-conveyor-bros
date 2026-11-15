@@ -23,9 +23,9 @@ func _process(delta: float) -> void:
 		timer = rng.randf_range(min_time_between, max_time_between)
 		var chance = rng.randf_range(0, 1)
 		if chance < chance_of_big:
-			enemy_kaiju.consume_item(10)
-		elif chance < chance_of_big + chance_of_mid:
-			enemy_kaiju.consume_item(4)
-		else:
 			enemy_kaiju.consume_item(2)
+		elif chance < chance_of_big + chance_of_mid:
+			enemy_kaiju.consume_item(10)
+		else:
+			enemy_kaiju.consume_item(30)
 	pass
