@@ -1,7 +1,11 @@
 class_name Kaiju
 extends Node3D
-
+signal energy_change
+signal attack
 @export var body_animator:AnimatedSprite3D
+@export var display_min_value:float = 0
+@export var display_max_value:float = 100
+@export var score_modifier:int = 1
 
 enum AnimState {
 	idle,
@@ -39,6 +43,9 @@ func gain_energy(added_energy: float) -> void:
 		print("fire") #TODO: fire here
 		energy = 0
 		energy_percentage = 0
+		attack.emit(score_modifier)
+	var lerped_energy = lerp(display_min_value, display_max_value, energy_percentage)
+	energy_change.emit(lerped_energy)
 
 
 func _on_body_frame_changed() -> void:

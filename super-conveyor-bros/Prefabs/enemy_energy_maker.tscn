@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://byf3ro3pjg0w"]
+
+[ext_resource type="Script" uid="uid://dg51vkj1b41h4" path="res://Scripts/enemy_energy_maker.gd" id="1_wv3n4"]
+
+[node name="EnemyEnergyMaker" type="Node3D" unique_id=1895794896]
+script = ExtResource("1_wv3n4")
