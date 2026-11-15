@@ -58,14 +58,15 @@ func _on_body_frame_changed() -> void:
 		vfx_animator.position.x = 0
 
 func modify_speed(new_speed: float) -> void:
+	if new_speed == 0:
+		handle_going_away()
+		return
+	
 	if state_tween:
 		state_tween.kill()
 	state_tween = get_tree().create_tween()
 	state_tween.tween_property($VFX, "speed_scale", new_speed, 0.5)
 	state_tween.tween_property($Body, "speed_scale", new_speed, 0.5)
-	
-	if new_speed == 0:
-		state_tween.tween_callback(handle_going_away)
 
 func set_vfx_active(state:bool) -> void:
 	vfx_animator.visible = state
