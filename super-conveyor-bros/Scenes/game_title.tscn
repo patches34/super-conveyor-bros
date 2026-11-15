@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cn6d5007ntxf0"]
+
+[ext_resource type="Texture2D" uid="uid://unce6af4mhg3" path="res://Texture/T_PosterIcon.png" id="1_1utsn"]
+[ext_resource type="Script" uid="uid://b186aa467p3tx" path="res://Scripts/game_title.gd" id="1_ydcr7"]
+[ext_resource type="FontFile" uid="uid://b2qpofvcgi2vf" path="res://Fonts/PressStart2P-Regular.ttf" id="2_oetga"]
+
+[node name="GameTitle" type="Control" unique_id=1100916574]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ydcr7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=996281201]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 53.0
+offset_bottom = -196.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1utsn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="." unique_id=1644449677]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.761
+anchor_right = 0.6
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_oetga")
+text = "Click to Play"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
