@@ -5,7 +5,7 @@ var body_animator:AnimatedSprite3D
 var vfx_animator:AnimatedSprite3D
 var break_animator:AnimatedSprite3D
 var impact_area:Area3D
-var obj_below:Item = null
+var obj_below:Array[Item] = []
 @export var min_damage:int = 1
 @export var max_damage:int = 5
 @export var damage_frames:Array[int]
@@ -43,12 +43,14 @@ func _process(delta: float) -> void:
 		set_random_bro_state()
 
 func _on_body_frame_changed() -> void:
-	if(obj_below != null && 
-			damage_frames.find(body_animator.frame) != -1):
-		obj_below.reduce_health_range(min_damage, max_damage)
+	if(obj_below.size() > 0 && 
+			damage_frames.find(body_animator.frame) != -1 &&
+			bro_state != Enums.BroStates.away):
+		for obj in obj_below:
+			obj.reduce_health_range(min_damage, max_damage)
 		sfx.play()
 	
-	vfx_animator.visible = obj_below != null
+	vfx_animator.visible = obj_below.size() != 0
 	vfx_animator.frame = body_animator.frame
 	if vfx_animator.frame < 3:
 		vfx_animator.position.x = -0.3
@@ -69,12 +71,14 @@ func set_vfx_active(state:bool) -> void:
 	vfx_animator.visible = state
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area is Item && body_animator.visible:
-		obj_below = area
+	if area is Item:
+		obj_below.append(area)
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
-	if area is Item && area == obj_below:
-		obj_below = null
+	if area is Item:
+		print("Before:" + str(obj_below.size()))
+		obj_below = obj_below.filter(func(x): return x != area)
+		print("After:" + str(obj_below.size()))
 
 func set_random_bro_state() -> void:
 	var next_state = (Enums.BroStates.values()
