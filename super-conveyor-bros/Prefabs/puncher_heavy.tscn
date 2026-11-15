@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bmgekaeadq6ye" path="res://Scripts/puncher.gd" id="1_krhmf"]
 [ext_resource type="Texture2D" uid="uid://d2ffta1s11ryb" path="res://SpriteAnim/HeavyPunch.png" id="2_pikwx"]
 [ext_resource type="Texture2D" uid="uid://dqf3311e5nvcy" path="res://SpriteAnim/VFX_HeavyPunch.png" id="3_w3i76"]
+[ext_resource type="Texture2D" uid="uid://cbvhi1vjt10ci" path="res://SpriteAnim/BreakAnim.png" id="4_p6arj"]
+[ext_resource type="AudioStream" uid="uid://1tca3ynxpb3n" path="res://Audio/Sfx/heavy_punch_1.wav" id="5_17ujc"]
+[ext_resource type="AudioStream" uid="uid://ddm3gqeb0orb" path="res://Audio/Sfx/heavy_punch_2.wav" id="6_t2ycf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wo40b"]
 atlas = ExtResource("2_pikwx")
@@ -163,6 +166,91 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_rec73"]
 size = Vector3(0.30872726, 0.65599823, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5ovk"]
+atlas = ExtResource("4_p6arj")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tyog"]
+atlas = ExtResource("4_p6arj")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb8hm"]
+atlas = ExtResource("4_p6arj")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7yum"]
+atlas = ExtResource("4_p6arj")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shn2c"]
+atlas = ExtResource("4_p6arj")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqfth"]
+atlas = ExtResource("4_p6arj")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sux0y"]
+atlas = ExtResource("4_p6arj")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo3v0"]
+atlas = ExtResource("4_p6arj")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmdx1"]
+atlas = ExtResource("4_p6arj")
+region = Rect2(2048, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fugoy"]
+atlas = ExtResource("4_p6arj")
+region = Rect2(2304, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gqxif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5ovk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tyog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb8hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7yum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shn2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqfth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sux0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo3v0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmdx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fugoy")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gkw1d"]
+random_pitch = 1.0463871
+random_volume_offset_db = 1.87
+streams_count = 2
+stream_0/stream = ExtResource("5_17ujc")
+stream_1/stream = ExtResource("6_t2ycf")
+
 [node name="Heavy" type="Node3D" unique_id=646209255]
 transform = Transform3D(1.2579391, 0, 0, 0, 1.2579391, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_krhmf")
@@ -184,6 +272,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=984391014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049776077, 0.25891745, 0)
 shape = SubResource("BoxShape3D_rec73")
+
+[node name="Break" type="AnimatedSprite3D" parent="." unique_id=1678762883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9967794, 0.1145798)
+visible = false
+sprite_frames = SubResource("SpriteFrames_gqxif")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1916838297]
+stream = SubResource("AudioStreamRandomizer_gkw1d")
+volume_db = -5.778
+max_polyphony = 4
 
 [connection signal="frame_changed" from="Body" to="." method="_on_body_frame_changed"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

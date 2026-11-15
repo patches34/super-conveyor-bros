@@ -13,9 +13,13 @@ var obj_below:Item = null
 
 @export var min_state_time:float = 3.0
 @export var max_state_time:float = 5.0
+
+var sfx:AudioStreamPlayer
+
 var state_tween
 var timer:float = 1
 var rng:RandomNumberGenerator
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +28,7 @@ func _ready() -> void:
 	vfx_animator = $VFX
 	impact_area = $Area3D
 	break_animator = $Break
+	sfx = $AudioStreamPlayer
 	body_animator.play()
 	vfx_animator.play()
 	break_animator.visible = false
@@ -41,6 +46,7 @@ func _on_body_frame_changed() -> void:
 	if(obj_below != null && 
 			damage_frames.find(body_animator.frame) != -1):
 		obj_below.reduce_health_range(min_damage, max_damage)
+		sfx.play()
 	
 	vfx_animator.visible = obj_below != null
 	vfx_animator.frame = body_animator.frame
