@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c05cts6f035oa"]
+
+[ext_resource type="Texture2D" uid="uid://3e1xrw85xdmw" path="res://Texture/T_Table_Base.png" id="1_s4xht"]
+
+[resource]
+albedo_texture = ExtResource("1_s4xht")
+metallic_specular = 0.0
+roughness = 0.0
+emission_enabled = true
+emission_texture = ExtResource("1_s4xht")
