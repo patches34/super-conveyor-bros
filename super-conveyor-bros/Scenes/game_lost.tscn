@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxv26tlcskk8"]
 
-[ext_resource type="Script" uid="uid://b186aa467p3tx" path="res://Scripts/game_title.gd" id="1_rdej0"]
+[ext_resource type="Script" uid="uid://b3dp5fcyi0nxh" path="res://Scripts/game_over.gd" id="1_rdej0"]
 [ext_resource type="FontFile" uid="uid://b2qpofvcgi2vf" path="res://Fonts/PressStart2P-Regular.ttf" id="2_dl3hp"]
 
 [node name="GameWin" type="Control" unique_id=1448796187]

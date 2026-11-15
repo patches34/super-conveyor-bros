@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://klrm08bqamam"]
 
 [ext_resource type="FontFile" uid="uid://b2qpofvcgi2vf" path="res://Fonts/PressStart2P-Regular.ttf" id="1_4coss"]
-[ext_resource type="Script" uid="uid://b186aa467p3tx" path="res://Scripts/game_title.gd" id="1_er4tp"]
+[ext_resource type="Script" uid="uid://b3dp5fcyi0nxh" path="res://Scripts/game_over.gd" id="1_er4tp"]
 
 [node name="GameWin" type="Control" unique_id=1448796187]
 layout_mode = 3
