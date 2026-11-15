@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://benvrdli7tdwe" path="res://Prefabs/item_spawn.tscn" id="2_f3gli"]
 [ext_resource type="PackedScene" uid="uid://d0t6tyels0dhd" path="res://Prefabs/puncher.tscn" id="4_6l6h0"]
 [ext_resource type="PackedScene" uid="uid://3ocuibmw4jbr" path="res://Prefabs/item_capture.tscn" id="7_5vthg"]
+[ext_resource type="Texture2D" uid="uid://ly7jrplt86ky" path="res://Texture/T_BaseArrow.png" id="7_lwkuy"]
+[ext_resource type="FontFile" uid="uid://b2qpofvcgi2vf" path="res://Fonts/PressStart2P-Regular.ttf" id="8_tqiex"]
 [ext_resource type="Material" uid="uid://capn3kwjarjr5" path="res://Materials/wall.tres" id="8_unus1"]
 [ext_resource type="PackedScene" uid="uid://d4k0lg4gcwunb" path="res://Prefabs/input.tscn" id="9_vgie2"]
 
@@ -54,3 +56,135 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.61953, 0, 0)
 transform = Transform3D(24.115, 0, 0, 0, 8.298, 0, 0, 0, 1, -2.975, -7.655, -1)
 material_override = ExtResource("8_unus1")
 mesh = SubResource("QuadMesh_y3e6f")
+
+[node name="UI" type="Control" parent="." unique_id=392721631]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI" unique_id=681411782]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.52
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_enabled = true
+
+[node name="VSplitContainer" type="VSplitContainer" parent="UI/Panel" unique_id=1977293187]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(0, 0, 0)
+dragging_enabled = false
+dragger_visibility = 2
+
+[node name="Label" type="Label" parent="UI/Panel/VSplitContainer" unique_id=124029315]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 30
+text = "Look Up Table"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="UI/Panel/VSplitContainer" unique_id=1430860384]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="UI/Panel/VSplitContainer/Panel" unique_id=1822080784]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_vertical = 2
+texture = ExtResource("7_lwkuy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/Panel/VSplitContainer/Panel" unique_id=1273934339]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_tqiex")
+theme_override_font_sizes/font_size = 22
+text = "1 - 5"
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="UI/Panel/VSplitContainer" unique_id=1724580716]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="UI/Panel/VSplitContainer/Panel2" unique_id=1639690906]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_vertical = 2
+texture = ExtResource("7_lwkuy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/Panel/VSplitContainer/Panel2" unique_id=1730116611]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_tqiex")
+theme_override_font_sizes/font_size = 22
+text = "6 - 20"
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="UI/Panel/VSplitContainer" unique_id=1604010528]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="UI/Panel/VSplitContainer/Panel3" unique_id=1062111821]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_vertical = 2
+texture = ExtResource("7_lwkuy")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/Panel/VSplitContainer/Panel3" unique_id=2037558670]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_tqiex")
+theme_override_font_sizes/font_size = 22
+text = "21 - 100"
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="UI" unique_id=740355088]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.52
+grow_horizontal = 2
+grow_vertical = 2
