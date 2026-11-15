@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://xylfjb6pb56u"]
+
+[ext_resource type="Texture2D" uid="uid://by85p1gc07uyn" path="res://Texture/T_BaseHeroMaskV2.png" id="1_yivq0"]
+
+[resource]
+render_priority = 1
+transparency = 1
+albedo_texture = ExtResource("1_yivq0")
+metallic_specular = 0.0
+roughness = 0.0

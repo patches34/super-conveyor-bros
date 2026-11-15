@@ -5,11 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://d0t6tyels0dhd" path="res://Prefabs/puncher.tscn" id="4_6l6h0"]
 [ext_resource type="PackedScene" uid="uid://3ocuibmw4jbr" path="res://Prefabs/item_capture.tscn" id="7_5vthg"]
 [ext_resource type="PackedScene" uid="uid://b037v6mlq3gs8" path="res://Mesh/SM_Table.fbx" id="7_ha3dl"]
+[ext_resource type="Material" uid="uid://xylfjb6pb56u" path="res://Materials/hero_blast.tres" id="8_ha3dl"]
 [ext_resource type="PackedScene" uid="uid://cwyyfxhnrrfef" path="res://Prefabs/ui.tscn" id="8_tqiex"]
 [ext_resource type="Material" uid="uid://capn3kwjarjr5" path="res://Materials/wall.tres" id="8_unus1"]
+[ext_resource type="Material" uid="uid://1p0n2lsum8ki" path="res://Materials/enemy_blast.tres" id="9_f3gli"]
 [ext_resource type="PackedScene" uid="uid://d4k0lg4gcwunb" path="res://Prefabs/input.tscn" id="9_vgie2"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_y3e6f"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_3i4lk"]
 
 [node name="Baker Level" type="Node3D" unique_id=1504819680]
 
@@ -60,5 +64,15 @@ mesh = SubResource("QuadMesh_y3e6f")
 [node name="SM_Table" parent="." unique_id=1310896556 instance=ExtResource("7_ha3dl")]
 transform = Transform3D(-7.586893e-08, 0, 1.4729666, 0, 1.5448854, 0, -1.7356789, 0, -6.438541e-08, 0, -0.5965965, -12.811)
 rotation_order = 0
+
+[node name="Hero - MeshInstance3D" type="MeshInstance3D" parent="SM_Table" unique_id=1012190181]
+transform = Transform3D(2.4601564, -3.5381078e-07, -0.94264144, -6.947267, -5.006306e-07, -0.33380687, -2.1461607e-07, 12.15, -4.1204164e-08, 0, 1.2393157, 0)
+material_override = ExtResource("8_ha3dl")
+mesh = SubResource("QuadMesh_3i4lk")
+
+[node name="Enemy - MeshInstance3D2" type="MeshInstance3D" parent="SM_Table" unique_id=1462891460]
+transform = Transform3D(2.520688, 3.4944873e-07, -0.93969256, 6.9255342, -4.9906447e-07, 0.34202012, -2.1197012e-07, -12.15, -4.1075264e-08, 0, 1.2393157, 0)
+material_override = ExtResource("9_f3gli")
+mesh = SubResource("QuadMesh_3i4lk")
 
 [node name="UI" parent="." unique_id=767468236 instance=ExtResource("8_tqiex")]
