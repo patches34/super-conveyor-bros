@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cx7veo6q2f5rk" path="res://Scripts/game_ui_manager.gd" id="1_weo7u"]
 [ext_resource type="Texture2D" uid="uid://ly7jrplt86ky" path="res://Texture/T_BaseArrow.png" id="1_xd705"]
+[ext_resource type="Texture2D" uid="uid://cfwgd3mdi4itd" path="res://Texture/T_IteamV3.png" id="2_k0meo"]
 [ext_resource type="FontFile" uid="uid://b2qpofvcgi2vf" path="res://Fonts/PressStart2P-Regular.ttf" id="2_ykg4x"]
 [ext_resource type="Texture2D" uid="uid://dfgceuuh0hpdq" path="res://Texture/T_BaseEnemyEnergy.png" id="3_srcu5"]
+[ext_resource type="Texture2D" uid="uid://814wu7t4xtpu" path="res://Texture/T_IteamV2.png" id="4_vf106"]
 [ext_resource type="Texture2D" uid="uid://by85p1gc07uyn" path="res://Texture/T_BaseHeroMaskV2.png" id="4_xd705"]
+[ext_resource type="Texture2D" uid="uid://drueodaxb3xvm" path="res://Texture/T_IteamV1.png" id="5_3vqh3"]
 [ext_resource type="Texture2D" uid="uid://cy37bjyaifjwd" path="res://icon.svg" id="5_weo7u"]
 [ext_resource type="Texture2D" uid="uid://x5a3ii31fwuf" path="res://Texture/T_BaseHeroEnergy.png" id="6_srcu5"]
 [ext_resource type="Texture2D" uid="uid://dfx0xu1rqb4w0" path="res://Texture/T_BaseEnemyMaskV2.png" id="7_oaevd"]
@@ -34,42 +37,43 @@ grow_horizontal = 0
 grow_vertical = 0
 offset_transform_enabled = true
 
-[node name="VSplitContainer" type="VSplitContainer" parent="Lookup -Panel" unique_id=1611906968]
-self_modulate = Color(1, 1, 1, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="Lookup -Panel" unique_id=1449625201]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
-split_offsets = PackedInt32Array(0, 0, 0)
-dragging_enabled = false
-dragger_visibility = 2
+theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="Lookup -Panel/VSplitContainer" unique_id=390377287]
+[node name="Label" type="Label" parent="Lookup -Panel/VBoxContainer" unique_id=390377287]
 layout_mode = 2
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
-theme_override_font_sizes/font_size = 30
-text = "Look Up Table"
+theme_override_fonts/font = ExtResource("2_ykg4x")
+theme_override_font_sizes/font_size = 38
+text = "Lookup Table"
 horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="Panel" type="Panel" parent="Lookup -Panel/VSplitContainer" unique_id=260914250]
+[node name="Panel" type="Panel" parent="Lookup -Panel/VBoxContainer" unique_id=260914250]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="Lookup -Panel/VSplitContainer/Panel" unique_id=292853891]
+[node name="TextureRect" type="TextureRect" parent="Lookup -Panel/VBoxContainer/Panel" unique_id=292853891]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_xd705")
-expand_mode = 3
+texture = ExtResource("2_k0meo")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Lookup -Panel/VSplitContainer/Panel" unique_id=1672859920]
+[node name="Label" type="Label" parent="Lookup -Panel/VBoxContainer/Panel" unique_id=1672859920]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -82,22 +86,23 @@ theme_override_font_sizes/font_size = 22
 text = "1 - 5"
 vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="Lookup -Panel/VSplitContainer" unique_id=863381233]
+[node name="Panel2" type="Panel" parent="Lookup -Panel/VBoxContainer" unique_id=863381233]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="Lookup -Panel/VSplitContainer/Panel2" unique_id=1023134862]
+[node name="TextureRect" type="TextureRect" parent="Lookup -Panel/VBoxContainer/Panel2" unique_id=1023134862]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_xd705")
-expand_mode = 3
+texture = ExtResource("4_vf106")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Lookup -Panel/VSplitContainer/Panel2" unique_id=777937389]
+[node name="Label" type="Label" parent="Lookup -Panel/VBoxContainer/Panel2" unique_id=777937389]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -110,22 +115,23 @@ theme_override_font_sizes/font_size = 22
 text = "6 - 20"
 vertical_alignment = 1
 
-[node name="Panel3" type="Panel" parent="Lookup -Panel/VSplitContainer" unique_id=1826904536]
+[node name="Panel3" type="Panel" parent="Lookup -Panel/VBoxContainer" unique_id=1826904536]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="Lookup -Panel/VSplitContainer/Panel3" unique_id=266632854]
+[node name="TextureRect" type="TextureRect" parent="Lookup -Panel/VBoxContainer/Panel3" unique_id=266632854]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_xd705")
-expand_mode = 3
+texture = ExtResource("5_3vqh3")
+expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Lookup -Panel/VSplitContainer/Panel3" unique_id=1453762844]
+[node name="Label" type="Label" parent="Lookup -Panel/VBoxContainer/Panel3" unique_id=1453762844]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -135,7 +141,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ykg4x")
 theme_override_font_sizes/font_size = 22
-text = "21 - 100"
+text = "21 - 50"
 vertical_alignment = 1
 
 [node name="Battle - Panel2" type="Panel" parent="." unique_id=1498538085]

@@ -3,7 +3,7 @@ extends Node3D
 var item_prefab: PackedScene = preload("res://Prefabs/item.tscn")
 
 @export var max_spawn: int = 5
-var spawns = []
+@export var spawns = []
 
 @export var spawn_time: float = 4.0
 var timer:float = 0
@@ -21,6 +21,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	spawns = spawns.filter(func (item): return is_instance_valid(item))
+	
 	timer -= delta
 	
 	if (timer <= 0):
