@@ -12,6 +12,7 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 
 [node name="Item" type="Area3D" unique_id=428435005]
+collision_mask = 5
 script = ExtResource("1_okjcq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=213196976]
@@ -30,3 +31,6 @@ text = "100"
 font = ExtResource("1_8fih3")
 font_size = 100
 outline_size = 25
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

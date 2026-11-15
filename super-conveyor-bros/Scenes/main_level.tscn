@@ -25,8 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 0.93481517, 0.35513458, 0, -0.35513458, 0.93
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -5.2697, 0)
 
 [node name="ItemSpawn" parent="Belt" unique_id=921366110 node_paths=PackedStringArray("scroll_signal") instance=ExtResource("2_f3gli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
-spawn_point = Vector3(1.1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, 0)
 scroll_signal = NodePath("../../Input")
 
 [node name="Belt4" parent="Belt" unique_id=915165887 instance=ExtResource("1_ha3dl")]
