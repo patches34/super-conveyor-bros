@@ -1,6 +1,7 @@
 extends Node3D
 var body_animator:AnimatedSprite3D
 var vfx_animator:AnimatedSprite3D
+var break_animator:AnimatedSprite3D
 var impact_area:Area3D
 var obj_below:Item = null
 @export var min_damage:int = 1
@@ -22,6 +23,7 @@ func _ready() -> void:
 	impact_area = $Area3D
 	body_animator.play()
 	vfx_animator.play()
+	break_animator.visible = false
 	set_random_bro_state()
 	rng = RandomNumberGenerator.new()
 
@@ -50,6 +52,9 @@ func modify_speed(new_speed: float) -> void:
 	state_tween = get_tree().create_tween()
 	state_tween.tween_property($VFX, "speed_scale", new_speed, 0.5)
 	state_tween.tween_property($Body, "speed_scale", new_speed, 0.5)
+	
+	if new_speed == 0:
+		state_tween.callback()
 
 func set_vfx_active(state:bool) -> void:
 	vfx_animator.visible = state
