@@ -126,16 +126,17 @@ script = ExtResource("1_gug5k")
 damage_frames = Array[int]([1, 4])
 
 [node name="Body" type="AnimatedSprite3D" parent="." unique_id=328768791]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.114, 0)
 sprite_frames = SubResource("SpriteFrames_rec73")
 frame = 4
 
 [node name="VFX" type="AnimatedSprite3D" parent="." unique_id=375682305]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28, 0.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.114, 0.01)
 sprite_frames = SubResource("SpriteFrames_m0c63")
 frame = 6
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1573049908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.834, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=984391014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049776077, 0.25891745, 0)

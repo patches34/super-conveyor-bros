@@ -171,14 +171,15 @@ max_damage = 30
 damage_frames = Array[int]([7])
 
 [node name="Body" type="AnimatedSprite3D" parent="." unique_id=328768791]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.531, 0)
 sprite_frames = SubResource("SpriteFrames_rec73")
 
 [node name="VFX" type="AnimatedSprite3D" parent="." unique_id=375682305]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28, 0.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.531, 0.01)
 sprite_frames = SubResource("SpriteFrames_m0c63")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1573049908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=984391014]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049776077, 0.25891745, 0)
