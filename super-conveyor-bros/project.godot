@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Super Conveyor Bros"
-run/main_scene="uid://xoid2xbmky1b"
+run/main_scene="uid://cn6d5007ntxf0"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,8 @@ Enums="*uid://iv5aob1oom3a"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
