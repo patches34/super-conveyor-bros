@@ -5,14 +5,14 @@ var item_prefab: PackedScene = preload("res://Prefabs/item.tscn")
 @export var max_spawn: int = 5
 var spawns = []
 
-@export var spawn_node: Node3D;
-
 @export var spawn_time: float = 4.0
-@export var timer:float = 0
+var timer:float = 0
+
+@export var spawn_node: Node3D;
 
 @export var scroll_signal:Scrol_Input
 
-@export var is_touching:bool = false
+var touching_bodies: Array[Area3D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		timer = spawn_time
 
 func on_spawn():
-	if (spawns.size() < max_spawn) && !is_touching:
+	if (spawns.size() < max_spawn) && (touching_bodies.size() == 0):
 		var instance:Item = item_prefab.instantiate()
 		
 		scroll_signal.scroll_changed.connect(instance._on_scroll)
@@ -42,8 +42,8 @@ func on_spawn():
 
 
 func _on_area_entered(area: Area3D) -> void:
-	is_touching = true
+	touching_bodies.append(area)
 
 
 func _on_area_exited(area: Area3D) -> void:
-	is_touching = false
+	touching_bodies.erase(area)
