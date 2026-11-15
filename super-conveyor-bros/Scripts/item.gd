@@ -8,9 +8,6 @@ var move_dir:int = 1;
 
 @export var move_speed: float = 0.054
 
-@export var belt_man: LevelManager
-@export var active_index: int = 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -45,8 +42,7 @@ func reduce_health(delta: int) -> void:
 
 func _on_scroll(value):
 	#print(value * move_speed)
-	if ((belt_man == null) || (belt_man.current_index == active_index)):
-		position += Vector3(value * move_speed * move_dir, 0, 0);
+	position += Vector3(value * move_speed * move_dir, 0, 0);
 
 func _on_capture():
 	print("been captured")
