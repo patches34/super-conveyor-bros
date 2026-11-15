@@ -16,9 +16,15 @@ func _begin_effect(num: int, dir: Vector3, duration: float) -> void:
 
 func begin(num: int) -> void:
 	var rng = RandomNumberGenerator.new()
+	var rand_invert = 1
+	if rng.randf_range(0, 1) < 0.5:
+		rand_invert = -1
+		
+	position.x += 1.3 * rand_invert
+	
 	_begin_effect(num, 
-		Vector3(rng.randf_range(-1, 1), 
-		rng.randf_range(2.5, 3.5), 0), 
+		Vector3(rng.randf_range(1,2) * rand_invert, 
+		rng.randf_range(3, 3.5), 0), 
 		0.6)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,5 +1,5 @@
 class_name Item
-extends Node3D
+extends Area3D
 var health: int
 var floating_text_prefab = preload("res://Prefabs/floating_text.tscn")
 var timer: float = 0.2
@@ -14,13 +14,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#timer -= delta
-	#position.x += delta * 0.5
+	position.x += delta * 0.5
 	#var rng = RandomNumberGenerator.new()
 	#if timer <= 0:
 		#timer = 0.2
 		#reduce_health(rng.randi_range(1, 5))
 	pass
 
+func reduce_health_range(min: int, max: int) -> void:
+	var rng = RandomNumberGenerator.new()
+	reduce_health(rng.randi_range(min, max))
 
 func reduce_health(delta: int) -> void:
 	health -= delta

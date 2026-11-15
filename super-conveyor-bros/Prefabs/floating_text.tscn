@@ -11,4 +11,4 @@ pixel_size = 0.003
 text = "123"
 font = ExtResource("2_b2aiq")
 font_size = 100
-outline_size = 20
+outline_size = 30
