@@ -76,13 +76,13 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="Lookup -Panel/VBoxContainer/Panel" unique_id=1672859920]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.42
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ykg4x")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "1 - 5"
 vertical_alignment = 1
 
@@ -105,13 +105,13 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="Lookup -Panel/VBoxContainer/Panel2" unique_id=777937389]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.42
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ykg4x")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "6 - 20"
 vertical_alignment = 1
 
@@ -134,13 +134,13 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="Lookup -Panel/VBoxContainer/Panel3" unique_id=1453762844]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.42
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ykg4x")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "21 - 50"
 vertical_alignment = 1
 
@@ -169,7 +169,6 @@ anchor_bottom = 1.0
 offset_left = -16.0
 offset_right = 11.600006
 grow_horizontal = 2
-step = 0.1
 fill_mode = 3
 nine_patch_stretch = true
 texture_over = ExtResource("3_srcu5")

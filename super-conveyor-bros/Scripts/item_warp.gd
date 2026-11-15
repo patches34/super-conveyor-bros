@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	print(area.move_dir)
+	#print(area.move_dir)
 	
 	#if (signf(area.move_dir) != signf(set_point.x)):
 		#getting called twice? from both warps

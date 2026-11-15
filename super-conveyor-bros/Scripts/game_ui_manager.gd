@@ -28,10 +28,10 @@ func update_score(value:int) -> void:
 	buckets[current_index].visible = true;
 	
 	if(current_index < 0):
-		print("Player Lost")
+		#print("Player Lost")
 		get_tree().change_scene_to_packed(game_lost)
 	elif current_index >= 5:
-		print("Player Won")
+		#print("Player Won")
 		get_tree().change_scene_to_packed(game_win)
 
 

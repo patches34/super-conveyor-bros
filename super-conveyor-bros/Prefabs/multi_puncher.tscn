@@ -106,9 +106,6 @@ bro_state = 1
 min_state_time = 5.0
 max_state_time = 12.0
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=840551188]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.165527)
-
 [node name="Break" type="AnimatedSprite3D" parent="." unique_id=1905679941]
 transform = Transform3D(1.254485, 0, 0, 0, 1.254485, 0, 0, 0, 1, 0, 1.5998709, 0)
 sprite_frames = SubResource("SpriteFrames_h2qhi")

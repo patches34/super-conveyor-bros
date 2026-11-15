@@ -50,7 +50,7 @@ func _on_scroll(value):
 		position += delta;
 
 func _on_capture():
-	print("been captured")
+	#print("been captured")
 	queue_free()
 
 

@@ -39,7 +39,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timer -= delta
-	print(timer)
+	#print(timer)
 	if timer < 0:
 		timer = rng.randf_range(min_state_time, max_state_time)
 		set_random_bro_state(false)
@@ -80,9 +80,9 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if area is Item:
-		print("Before:" + str(obj_below.size()))
+		#print("Before:" + str(obj_below.size()))
 		obj_below = obj_below.filter(func(x): return x != area)
-		print("After:" + str(obj_below.size()))
+		#print("After:" + str(obj_below.size()))
 
 func set_random_bro_state(no_break:bool) -> void:
 	var next_state = (Enums.BroStates.values()

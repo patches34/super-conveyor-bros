@@ -60,13 +60,13 @@ kaiju = NodePath("../PlayerKaiju")
 
 [node name="PlayerKaiju" parent="Belt" unique_id=1326239178 instance=ExtResource("9_ha3dl")]
 transform = Transform3D(-2.074, 0, 0, 0, 1.8392038, 0.46217132, 0, -0.95854324, 0.8867907, 21.224575, 11.726389, -3.5277276)
-display_min_value = 18.0
-display_max_value = 80.0
+display_min_value = 13.0
+display_max_value = 79.0
 kaiju_vfx = ExtResource("7_2jcip")
 
 [node name="EnemyKaiju" parent="Belt" unique_id=1920127202 instance=ExtResource("9_ha3dl")]
 transform = Transform3D(2.0735085, 0, 0, 0, 1.838768, 0.4621712, 0, -0.9583161, 0.88679075, -1.1843367, 11.726389, -3.5277276)
-display_min_value = 15.0
+display_min_value = 12.0
 display_max_value = 95.0
 score_modifier = -1
 kaiju_vfx = ExtResource("8_6l6h0")
@@ -74,8 +74,8 @@ kaiju_vfx = ExtResource("8_6l6h0")
 [node name="EnemyEnergyMaker" parent="Belt" unique_id=1895794896 node_paths=PackedStringArray("enemy_kaiju") instance=ExtResource("7_f3gli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4252892, 9.499999, 7.3195467)
 enemy_kaiju = NodePath("../EnemyKaiju")
-min_time_between = 0.1
-max_time_between = 0.5
+min_time_between = 3.0
+max_time_between = 6.0
 chance_of_big = 0.2
 
 [node name="Wall" type="MeshInstance3D" parent="." unique_id=205784542]
