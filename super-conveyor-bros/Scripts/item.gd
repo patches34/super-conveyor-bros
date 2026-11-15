@@ -8,7 +8,7 @@ var move_dir:int = 1;
 
 @export var move_speed: float = 0.054
 
-var touching_bodies: Array = []
+var touching_bodies: Array[Area3D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,7 +46,7 @@ func _on_scroll(value):
 	#print(value * move_speed)
 	var delta:Vector3 = Vector3(value * move_speed * move_dir, 0, 0);
 	
-	if (touching_bodies.size() == 0 || delta.x > 0):
+	if (!left_check() || delta.x > 0):
 		position += delta;
 
 func _on_capture():
@@ -60,3 +60,14 @@ func _on_area_entered(area: Area3D) -> void:
 
 func _on_area_exited(area: Area3D) -> void:
 	touching_bodies.erase(area)
+
+func  left_check() -> bool:
+	if touching_bodies.size() > 0:
+		for body in touching_bodies:
+			if body.global_position.x < global_position.x:
+				if body is Item:
+					return body.left_check()
+				else:
+					return true
+	
+	return false
