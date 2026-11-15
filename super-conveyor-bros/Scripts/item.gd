@@ -8,6 +8,8 @@ var move_dir:int = 1;
 
 @export var move_speed: float = 0.054
 
+var is_touching:bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -42,8 +44,19 @@ func reduce_health(delta: int) -> void:
 
 func _on_scroll(value):
 	#print(value * move_speed)
-	position += Vector3(value * move_speed * move_dir, 0, 0);
+	var delta:Vector3 = Vector3(value * move_speed * move_dir, 0, 0);
+	
+	if !is_touching || delta.x > 0:
+		position += delta;
 
 func _on_capture():
 	print("been captured")
 	queue_free()
+
+
+func _on_area_entered(area: Area3D) -> void:
+	is_touching = true
+
+
+func _on_area_exited(area: Area3D) -> void:
+	is_touching = false

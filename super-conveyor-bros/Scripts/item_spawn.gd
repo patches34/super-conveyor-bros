@@ -8,9 +8,11 @@ var spawns = []
 @export var spawn_node: Node3D;
 
 @export var spawn_time: float = 4.0
-var timer:float = 0
+@export var timer:float = 0
 
 @export var scroll_signal:Scrol_Input
+
+var is_touching:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +29,7 @@ func _process(delta: float) -> void:
 		timer = spawn_time
 
 func on_spawn():
-	if spawns.size() < max_spawn:
+	if (spawns.size() < max_spawn) && !is_touching:
 		var instance:Item = item_prefab.instantiate()
 		
 		scroll_signal.scroll_changed.connect(instance._on_scroll)
@@ -37,3 +39,11 @@ func on_spawn():
 		instance.global_position = global_position + spawn_node.position
 		
 		spawns.append(instance)
+
+
+func _on_area_entered(area: Area3D) -> void:
+	is_touching = true
+
+
+func _on_area_exited(area: Area3D) -> void:
+	is_touching = false

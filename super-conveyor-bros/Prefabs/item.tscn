@@ -30,3 +30,6 @@ text = "100"
 font = ExtResource("1_8fih3")
 font_size = 100
 outline_size = 25
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
