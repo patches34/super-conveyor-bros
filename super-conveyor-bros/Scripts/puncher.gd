@@ -4,8 +4,9 @@ var vfx_animator:AnimatedSprite3D
 var impact_area:Area3D
 var speed:float = 1.0
 var obj_below:Item = null
-var min_damage:int = 1
-var max_damage:int = 5
+@export var min_damage:int = 1
+@export var max_damage:int = 5
+@export var damage_frames:Array[int]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,8 +25,8 @@ func _process(delta: float) -> void:
 	
 
 func _on_body_frame_changed() -> void:
-	if(obj_below != null && (body_animator.frame == 1 
-			|| body_animator.frame == 4)):
+	if(obj_below != null && 
+			damage_frames.find(body_animator.frame) != -1):
 		obj_below.reduce_health_range(min_damage, max_damage)
 	
 	vfx_animator.visible = obj_below != null

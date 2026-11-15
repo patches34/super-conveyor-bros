@@ -13,4 +13,4 @@ fov = 79.82725
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1844265, 0, 0)
 
 [node name="Puncher" parent="." unique_id=646209255 instance=ExtResource("2_qvnqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023038745, 0.88405323, 0.39474225)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023038745, 0.83390963, 0.39474225)

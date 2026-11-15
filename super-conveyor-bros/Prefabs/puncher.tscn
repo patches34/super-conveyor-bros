@@ -119,10 +119,11 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rec73"]
-size = Vector3(0.41335297, 0.65599823, 1)
+size = Vector3(0.30872726, 0.65599823, 1)
 
 [node name="Puncher" type="Node3D" unique_id=646209255]
 script = ExtResource("1_gug5k")
+damage_frames = Array[int]([1, 4])
 
 [node name="Body" type="AnimatedSprite3D" parent="." unique_id=328768791]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28, 0)
@@ -137,7 +138,7 @@ frame = 6
 [node name="Area3D" type="Area3D" parent="." unique_id=1573049908]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=984391014]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0025367737, 0.25891745, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049776077, 0.25891745, 0)
 shape = SubResource("BoxShape3D_rec73")
 
 [connection signal="frame_changed" from="Body" to="." method="_on_body_frame_changed"]

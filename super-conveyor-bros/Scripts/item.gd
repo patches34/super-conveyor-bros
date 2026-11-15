@@ -14,7 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#timer -= delta
-	position.x += delta * 0.5
+	#position.x += delta * 0.5
 	#var rng = RandomNumberGenerator.new()
 	#if timer <= 0:
 		#timer = 0.2
