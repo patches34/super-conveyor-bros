@@ -27,5 +27,5 @@ func _process(delta: float) -> void:
 		elif chance < chance_of_big + chance_of_mid:
 			enemy_kaiju.consume_item(4)
 		else:
-			enemy_kaiju.consume_item(1)
+			enemy_kaiju.consume_item(2)
 	pass
