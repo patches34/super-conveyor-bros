@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://dfoq2iatuls1"]
 
 [ext_resource type="PackedScene" uid="uid://b7fjsrxcm1wig" path="res://Prefabs/item.tscn" id="1_ue12b"]
+[ext_resource type="PackedScene" uid="uid://d0t6tyels0dhd" path="res://Prefabs/puncher.tscn" id="2_qvnqx"]
 
 [node name="Test" type="Node3D" unique_id=1753287338]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=36377627]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7569618, 3.7819505)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7569618, 4.5101027)
 fov = 79.82725
 
 [node name="Item" parent="." unique_id=428435005 instance=ExtResource("1_ue12b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1844265, 0, 0)
+
+[node name="Puncher" parent="." unique_id=646209255 instance=ExtResource("2_qvnqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023038745, 0.88405323, 0.39474225)
