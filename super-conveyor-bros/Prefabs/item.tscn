@@ -12,6 +12,7 @@ emission_enabled = true
 emission = Color(1, 1, 1, 1)
 
 [node name="Item" type="Area3D" unique_id=428435005]
+collision_mask = 5
 script = ExtResource("1_okjcq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=213196976]

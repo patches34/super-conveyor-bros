@@ -12,7 +12,7 @@ var spawns = []
 
 @export var scroll_signal:Scrol_Input
 
-var is_touching:bool = false
+@export var is_touching:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
