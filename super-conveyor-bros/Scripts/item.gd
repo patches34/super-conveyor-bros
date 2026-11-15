@@ -39,7 +39,7 @@ func reduce_health(delta: int) -> void:
 	floating.global_position = $Label3D.global_position
 	floating.global_position.y += 0.35
 	
-	if health < 0:
+	if health <= 0:
 		queue_free()
 
 func _on_scroll(value):
