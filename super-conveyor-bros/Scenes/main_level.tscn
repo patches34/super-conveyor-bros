@@ -3,9 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://brgqh41lu0bse" path="res://Prefabs/Belt.tscn" id="1_ha3dl"]
 [ext_resource type="PackedScene" uid="uid://benvrdli7tdwe" path="res://Prefabs/item_spawn.tscn" id="2_f3gli"]
 [ext_resource type="PackedScene" uid="uid://d0t6tyels0dhd" path="res://Prefabs/puncher.tscn" id="4_6l6h0"]
+[ext_resource type="SpriteFrames" uid="uid://hyle7sr4ye5r" path="res://SpriteAnim/SpriteFrames/player_beam.tres" id="7_2jcip"]
 [ext_resource type="PackedScene" uid="uid://3ocuibmw4jbr" path="res://Prefabs/item_capture.tscn" id="7_5vthg"]
 [ext_resource type="PackedScene" uid="uid://byf3ro3pjg0w" path="res://Prefabs/enemy_energy_maker.tscn" id="7_f3gli"]
 [ext_resource type="PackedScene" uid="uid://b037v6mlq3gs8" path="res://Mesh/SM_Table.fbx" id="7_ha3dl"]
+[ext_resource type="SpriteFrames" uid="uid://52m4qg47xsm8" path="res://SpriteAnim/SpriteFrames/enemy_beam.tres" id="8_6l6h0"]
 [ext_resource type="PackedScene" uid="uid://cwyyfxhnrrfef" path="res://Prefabs/ui.tscn" id="8_tqiex"]
 [ext_resource type="Material" uid="uid://capn3kwjarjr5" path="res://Materials/wall.tres" id="8_unus1"]
 [ext_resource type="PackedScene" uid="uid://co75ho28kogkf" path="res://Prefabs/kaiju.tscn" id="9_ha3dl"]
@@ -59,16 +61,21 @@ kaiju = NodePath("../PlayerKaiju")
 transform = Transform3D(-2.074, 0, 0, 0, 1.8392038, 0.46217132, 0, -0.95854324, 0.8867907, 21.224575, 11.726389, -3.5277276)
 display_min_value = 18.0
 display_max_value = 80.0
+kaiju_vfx = ExtResource("7_2jcip")
 
 [node name="EnemyKaiju" parent="Belt" unique_id=1920127202 instance=ExtResource("9_ha3dl")]
 transform = Transform3D(2.0735085, 0, 0, 0, 1.838768, 0.4621712, 0, -0.9583161, 0.88679075, -1.1843367, 11.726389, -3.5277276)
 display_min_value = 15.0
 display_max_value = 95.0
 score_modifier = -1
+kaiju_vfx = ExtResource("8_6l6h0")
 
 [node name="EnemyEnergyMaker" parent="Belt" unique_id=1895794896 node_paths=PackedStringArray("enemy_kaiju") instance=ExtResource("7_f3gli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4252892, 9.499999, 7.3195467)
 enemy_kaiju = NodePath("../EnemyKaiju")
+min_time_between = 0.1
+max_time_between = 0.2
+chance_of_big = 1.0
 
 [node name="Wall" type="MeshInstance3D" parent="." unique_id=205784542]
 transform = Transform3D(24.115, 0, 0, 0, 8.298, 0, 0, 0, 1, -2.975, -7.655, -1)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bg51pen5uw3xu" path="res://Scripts/kaiju.gd" id="1_y8qcm"]
 [ext_resource type="Texture2D" uid="uid://8dmphn7evsrj" path="res://SpriteAnim/HeroAnim.png" id="2_kpefn"]
+[ext_resource type="Texture2D" uid="uid://tc5ga6dekv2d" path="res://SpriteAnim/VFXRobotAnim.png" id="3_srjph"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jjcik"]
 atlas = ExtResource("2_kpefn")
@@ -116,11 +117,131 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_srjph"]
+atlas = ExtResource("3_srjph")
+region = Rect2(0, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s8kv"]
+atlas = ExtResource("3_srjph")
+region = Rect2(1024, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yv6c"]
+atlas = ExtResource("3_srjph")
+region = Rect2(2048, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6xln"]
+atlas = ExtResource("3_srjph")
+region = Rect2(3072, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu2ou"]
+atlas = ExtResource("3_srjph")
+region = Rect2(4096, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn7yx"]
+atlas = ExtResource("3_srjph")
+region = Rect2(5120, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybnxi"]
+atlas = ExtResource("3_srjph")
+region = Rect2(6144, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi234"]
+atlas = ExtResource("3_srjph")
+region = Rect2(7168, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgx4w"]
+atlas = ExtResource("3_srjph")
+region = Rect2(8192, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eod6"]
+atlas = ExtResource("3_srjph")
+region = Rect2(9216, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xsge"]
+atlas = ExtResource("3_srjph")
+region = Rect2(10240, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0vfw"]
+atlas = ExtResource("3_srjph")
+region = Rect2(11264, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojtt8"]
+atlas = ExtResource("3_srjph")
+region = Rect2(12288, 0, 1024, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4n8r"]
+atlas = ExtResource("3_srjph")
+region = Rect2(13312, 0, 1024, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srjph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srjph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s8kv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yv6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6xln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu2ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn7yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybnxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi234")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgx4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eod6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xsge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0vfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojtt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4n8r")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="Kaiju" type="Node3D" unique_id=1326239178 node_paths=PackedStringArray("body_animator")]
 script = ExtResource("1_y8qcm")
 body_animator = NodePath("Body")
 
 [node name="Body" type="AnimatedSprite3D" parent="." unique_id=146359180]
 sprite_frames = SubResource("SpriteFrames_rec73")
+frame_progress = 0.1237699
+
+[node name="VFX" type="AnimatedSprite3D" parent="." unique_id=1518508834]
+transform = Transform3D(1.0988162, 0, 0, 0, 1.2289834, 0, 0, 0, 1, 5.3990097, 0, 0.43885183)
+sprite_frames = SubResource("SpriteFrames_srjph")
+frame = 15
+frame_progress = 1.0
 
 [connection signal="frame_changed" from="Body" to="." method="_on_body_frame_changed"]
+[connection signal="frame_changed" from="VFX" to="." method="_on_vfx_frame_changed"]
