@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://cm0d4744rlxmx"]
 
 [ext_resource type="PackedScene" uid="uid://cwkkxp25du8od" path="res://Prefabs/item_warp.tscn" id="3_b362e"]
+[ext_resource type="PackedScene" uid="uid://d0t6tyels0dhd" path="res://Prefabs/puncher.tscn" id="4_b362e"]
 [ext_resource type="PackedScene" uid="uid://d4k0lg4gcwunb" path="res://Prefabs/input.tscn" id="4_kx5y6"]
 [ext_resource type="PackedScene" uid="uid://brgqh41lu0bse" path="res://Prefabs/Belt.tscn" id="4_my5lr"]
+[ext_resource type="PackedScene" uid="uid://do60w2hri3lji" path="res://Prefabs/puncher_chop.tscn" id="5_l7hhh"]
 [ext_resource type="PackedScene" uid="uid://benvrdli7tdwe" path="res://Prefabs/item_spawn.tscn" id="5_xmtf4"]
 [ext_resource type="Material" uid="uid://capn3kwjarjr5" path="res://Materials/wall.tres" id="6_8601y"]
+[ext_resource type="PackedScene" uid="uid://0sbe73ot033p" path="res://Prefabs/puncher_heavy.tscn" id="6_amq1s"]
 [ext_resource type="PackedScene" uid="uid://3ocuibmw4jbr" path="res://Prefabs/item_capture.tscn" id="6_b362e"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_y3e6f"]
@@ -36,13 +39,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
 [node name="ItemSpawn" parent="Belt" unique_id=921366110 node_paths=PackedStringArray("scroll_signal") instance=ExtResource("5_xmtf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.469, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
 spawn_point = Vector3(1.1, 0, 0)
 scroll_signal = NodePath("../../Input")
 
 [node name="Item Warp T" parent="Belt" unique_id=48923668 instance=ExtResource("3_b362e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.25543, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.25543, 0, 0)
 set_point = Vector3(-1.1, 0, 0)
+
+[node name="Puncher" parent="Belt" unique_id=646209255 instance=ExtResource("4_b362e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.017631, 0, 0)
+
+[node name="Chopper" parent="Belt" unique_id=574697308 instance=ExtResource("5_l7hhh")]
+transform = Transform3D(1.4341635, 0, 0, 0, 1.4341635, 0, 0, 0, 1, 10.276251, 0, 0)
+
+[node name="Chopper2" parent="Belt" unique_id=1349757571 instance=ExtResource("5_l7hhh")]
+transform = Transform3D(1.4341635, 0, 0, 0, 1.4341635, 0, 0, 0, 1, 15.177412, 0, 0)
 
 [node name="Belt4" parent="." unique_id=800568804 instance=ExtResource("4_my5lr")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -2.1, 0)
@@ -60,12 +72,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
 [node name="Item Warp M1" parent="Belt4" unique_id=762116490 instance=ExtResource("3_b362e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3999996, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, 0)
 set_point = Vector3(-1.1, 0, 0)
 
 [node name="Item Warp M2" parent="Belt4" unique_id=552933778 instance=ExtResource("3_b362e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.385368, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.385, 0, 0)
 set_point = Vector3(1.1, 0, 0)
+
+[node name="Chopper" parent="Belt4" unique_id=385421207 instance=ExtResource("5_l7hhh")]
+transform = Transform3D(1.4341635, 0, 0, 0, 1.4341635, 0, 0, 0, 1, 11.340117, 0, 0)
+
+[node name="Heavy" parent="Belt4" unique_id=130098874 instance=ExtResource("6_amq1s")]
+transform = Transform3D(1.2579391, 0, 0, 0, 1.2579391, 0, 0, 0, 1, 5.4123497, 0, 0)
+
+[node name="Puncher" parent="Belt4" unique_id=582152229 instance=ExtResource("4_b362e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.91643, 0, 0)
 
 [node name="Belt5" parent="." unique_id=107658609 instance=ExtResource("4_my5lr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -8.75, 0)
@@ -83,11 +104,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
 
 [node name="ItemCapture" parent="Belt5" unique_id=192901402 instance=ExtResource("6_b362e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0, 0)
 
 [node name="Item Warp B" parent="Belt5" unique_id=1425408663 instance=ExtResource("3_b362e")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3853683, 0.3081932, 0)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -2.385, 0, 0)
 set_point = Vector3(1.1, 0, 0)
+
+[node name="Heavy" parent="Belt5" unique_id=1633735474 instance=ExtResource("6_amq1s")]
+transform = Transform3D(1.2579391, 0, 0, 0, 1.2579391, 0, 0, 0, 1, 4.3547664, 0, 0)
+
+[node name="Heavy2" parent="Belt5" unique_id=2117927882 instance=ExtResource("6_amq1s")]
+transform = Transform3D(1.2579391, 0, 0, 0, 1.2579391, 0, 0, 0, 1, 18.223602, 0, 0)
+
+[node name="Chopper" parent="Belt5" unique_id=679592558 instance=ExtResource("5_l7hhh")]
+transform = Transform3D(1.4341635, 0, 0, 0, 1.4341635, 0, 0, 0, 1, 13.34189, 0, 0)
+
+[node name="Puncher" parent="Belt5" unique_id=799909133 instance=ExtResource("4_b362e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.962484, 0, 0)
 
 [node name="Wall" type="MeshInstance3D" parent="." unique_id=205784542]
 transform = Transform3D(29.9687, 0, 0, 0, 19.977707, 0, 0, 0, 1, 0, 0, -4)

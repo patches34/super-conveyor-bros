@@ -8,5 +8,7 @@
 script = ExtResource("1_qjvh7")
 
 [node name="SM_Belt" parent="." unique_id=113141970 instance=ExtResource("3_1mits")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3743307, 0)
 
 [node name="SM_BeltBard" parent="." unique_id=1191194679 instance=ExtResource("4_5u78w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3743307, 0)

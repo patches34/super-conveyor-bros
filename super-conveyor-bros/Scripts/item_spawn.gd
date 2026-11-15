@@ -9,6 +9,9 @@ extends Node3D
 @export var belt_index: int = 0
 @export var level_man:LevelManager
 
+@export var spawn_time: float = 4.0
+var timer:float = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -16,17 +19,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	timer -= delta
 	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("spawn"):
+	if (timer <= 0):
 		on_spawn()
+		
+		timer = spawn_time
 
 func on_spawn():
 	var instance:Item = item_prefab.instantiate()
 	
 	scroll_signal.scroll_changed.connect(instance._on_scroll)
-	
 	
 	instance.active_index = belt_index
 	instance.belt_man = level_man
