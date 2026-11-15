@@ -65,7 +65,7 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 func set_random_bro_state() -> void:
 	bro_state = (Enums.BroStates.values()
 		.filter(func(s): return s != bro_state).pick_random())
-	print(Enums.BroStates.keys()[bro_state])
+	#print(Enums.BroStates.keys()[bro_state])
 	match bro_state:
 		Enums.BroStates.away:
 			modify_speed(0)
