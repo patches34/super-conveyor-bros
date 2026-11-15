@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://xoid2xbmky1b"]
+
+[ext_resource type="PackedScene" uid="uid://brgqh41lu0bse" path="res://Prefabs/Belt.tscn" id="1_ha3dl"]
+[ext_resource type="PackedScene" uid="uid://benvrdli7tdwe" path="res://Prefabs/item_spawn.tscn" id="2_f3gli"]
+[ext_resource type="PackedScene" uid="uid://d0t6tyels0dhd" path="res://Prefabs/puncher.tscn" id="4_6l6h0"]
+[ext_resource type="PackedScene" uid="uid://do60w2hri3lji" path="res://Prefabs/puncher_chop.tscn" id="5_o18aq"]
+[ext_resource type="PackedScene" uid="uid://3ocuibmw4jbr" path="res://Prefabs/item_capture.tscn" id="7_5vthg"]
+[ext_resource type="Material" uid="uid://capn3kwjarjr5" path="res://Materials/wall.tres" id="8_unus1"]
+[ext_resource type="PackedScene" uid="uid://d4k0lg4gcwunb" path="res://Prefabs/input.tscn" id="9_vgie2"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_y3e6f"]
+
+[node name="Baker Level" type="Node3D" unique_id=1504819680]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=97632224]
+transform = Transform3D(1, 0, 0, 0, 0.96814764, 0.25038, 0, -0.25038, 0.96814764, 0, 4.515, 10.99)
+projection = 1
+fov = 143.6
+size = 20.844
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=312652229]
+transform = Transform3D(1, 0, 0, 0, 0.93481517, 0.35513458, 0, -0.35513458, 0.93481517, 0, 1.9889195, 4.9511476)
+
+[node name="Belt" parent="." unique_id=1348700459 instance=ExtResource("1_ha3dl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -5.2697, 0)
+
+[node name="ItemSpawn" parent="Belt" unique_id=921366110 node_paths=PackedStringArray("scroll_signal") instance=ExtResource("2_f3gli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+spawn_point = Vector3(1.1, 0, 0)
+scroll_signal = NodePath("../../Input")
+
+[node name="Belt4" parent="Belt" unique_id=915165887 instance=ExtResource("1_ha3dl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 0)
+
+[node name="Belt7" parent="Belt" unique_id=237952539 instance=ExtResource("1_ha3dl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 0)
+
+[node name="Belt10" parent="Belt" unique_id=1150715829 instance=ExtResource("1_ha3dl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
+
+[node name="Belt13" parent="Belt" unique_id=1430979423 instance=ExtResource("1_ha3dl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 0)
+
+[node name="Puncher" parent="Belt" unique_id=646209255 instance=ExtResource("4_6l6h0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.017631, 0, 0)
+
+[node name="Chopper" parent="Belt" unique_id=574697308 instance=ExtResource("5_o18aq")]
+transform = Transform3D(1.4341635, 0, 0, 0, 1.4341635, 0, 0, 0, 1, 10.276251, 0, 0)
+
+[node name="Chopper2" parent="Belt" unique_id=1349757571 instance=ExtResource("5_o18aq")]
+transform = Transform3D(1.4341635, 0, 0, 0, 1.4341635, 0, 0, 0, 1, 15.177412, 0, 0)
+
+[node name="ItemCapture" parent="Belt" unique_id=192901402 instance=ExtResource("7_5vthg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0, 0)
+
+[node name="Wall" type="MeshInstance3D" parent="." unique_id=205784542]
+transform = Transform3D(29.9687, 0, 0, 0, 19.977707, 0, 0, 0, 1, 0, 0, -4)
+material_override = ExtResource("8_unus1")
+mesh = SubResource("QuadMesh_y3e6f")
+
+[node name="Input" parent="." unique_id=1280705331 instance=ExtResource("9_vgie2")]
+scroll_speed = 0.03
