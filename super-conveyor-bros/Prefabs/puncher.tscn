@@ -58,7 +58,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 24.0
+"speed": 12.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlknp"]
@@ -115,7 +115,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 24.0
+"speed": 12.0
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rec73"]
@@ -131,7 +131,7 @@ sprite_frames = SubResource("SpriteFrames_rec73")
 frame = 4
 
 [node name="VFX" type="AnimatedSprite3D" parent="." unique_id=375682305]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28, 0.22164476)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28, 0.01)
 sprite_frames = SubResource("SpriteFrames_m0c63")
 frame = 6
 

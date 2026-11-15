@@ -13,7 +13,7 @@ var move_dir:int = 1;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	health = 100
+	health = 1000
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

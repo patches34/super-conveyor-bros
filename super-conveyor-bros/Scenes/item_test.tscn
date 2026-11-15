@@ -2,15 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://b7fjsrxcm1wig" path="res://Prefabs/item.tscn" id="1_ue12b"]
 [ext_resource type="PackedScene" uid="uid://d0t6tyels0dhd" path="res://Prefabs/puncher.tscn" id="2_qvnqx"]
+[ext_resource type="PackedScene" uid="uid://do60w2hri3lji" path="res://Prefabs/puncher_chop.tscn" id="3_hir4s"]
+[ext_resource type="PackedScene" uid="uid://0sbe73ot033p" path="res://Prefabs/puncher_heavy.tscn" id="4_wrdoa"]
 
 [node name="Test" type="Node3D" unique_id=1753287338]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=36377627]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7569618, 4.5101027)
-fov = 79.82725
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6202698, 7.1503553)
+fov = 39.04902
 
 [node name="Item" parent="." unique_id=428435005 instance=ExtResource("1_ue12b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1844265, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.725524, 0, -0.6180575)
 
 [node name="Puncher" parent="." unique_id=646209255 instance=ExtResource("2_qvnqx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023038745, 0.83390963, 0.39474225)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023, 0.834, 0)
+
+[node name="Chopper" parent="." unique_id=855084823 instance=ExtResource("3_hir4s")]
+transform = Transform3D(1.4341635, 0, 0, 0, 1.4341635, 0, 0, 0, 1, -2.747, 0, 0)
+
+[node name="Heavy" parent="." unique_id=194534660 instance=ExtResource("4_wrdoa")]
+transform = Transform3D(1.2579391, 0, 0, 0, 1.2579391, 0, 0, 0, 1, 2.8572202, 0.2512443, 0)
