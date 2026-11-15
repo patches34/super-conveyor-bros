@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://brgqh41lu0bse"]
 
 [ext_resource type="Script" uid="uid://dq28pq0pyjlpg" path="res://Scripts/belt.gd" id="1_qjvh7"]
-[ext_resource type="Material" uid="uid://c4knh7dlrr7oe" path="res://Materials/t_belt.tres" id="2_5u78w"]
 [ext_resource type="PackedScene" uid="uid://b0fhvcwlp14r1" path="res://Mesh/SM_Belt.fbx" id="3_1mits"]
-[ext_resource type="Material" uid="uid://dxwff8t2me7cp" path="res://Materials/t_belt_bars.tres" id="3_dhdl2"]
 [ext_resource type="PackedScene" uid="uid://dpjctx7h5i7r4" path="res://Mesh/SM_BeltBard.fbx" id="4_5u78w"]
 
 [node name="Belt" type="Node3D" unique_id=1348700459]
 script = ExtResource("1_qjvh7")
-belt_texture = ExtResource("2_5u78w")
-bard_texture = ExtResource("3_dhdl2")
 
 [node name="SM_Belt" parent="." unique_id=113141970 instance=ExtResource("3_1mits")]
 
