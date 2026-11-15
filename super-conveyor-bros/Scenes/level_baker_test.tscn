@@ -96,6 +96,7 @@ mesh = SubResource("QuadMesh_y3e6f")
 
 [node name="Input" parent="." unique_id=1280705331 instance=ExtResource("4_kx5y6")]
 scroll_speed = 0.03
+lerp_speed = 50
 
 [connection signal="item_warped" from="Belt/Item Warp T" to="Belt4/Item Warp M1" method="_on_item_warped"]
 [connection signal="item_warped" from="Belt4/Item Warp M1" to="Belt/Item Warp T" method="_on_item_warped"]

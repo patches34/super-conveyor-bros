@@ -5,8 +5,9 @@ var floating_text_prefab = preload("res://Prefabs/floating_text.tscn")
 var timer: float = 0.2
 
 var move_dir:int = 1;
-
 @export var move_speed: float = 0.054
+@export var lerp_speed: float = 4
+var next_pos:Vector3
 
 @export var belt_man: LevelManager
 @export var active_index: int = 0
@@ -18,13 +19,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	position = position.lerp(next_pos, delta * lerp_speed)
 	#timer -= delta
 	#position.x += delta * 0.5
 	#var rng = RandomNumberGenerator.new()
 	#if timer <= 0:
 		#timer = 0.2
 		#reduce_health(rng.randi_range(1, 5))
-	pass
 
 func reduce_health_range(min: int, max: int) -> void:
 	var rng = RandomNumberGenerator.new()
@@ -45,8 +46,8 @@ func reduce_health(delta: int) -> void:
 
 func _on_scroll(value):
 	#print(value * move_speed)
-	if (belt_man.current_index == active_index):
-		position += Vector3(value * move_speed * move_dir, 0, 0);
+	if ((belt_man == null) || belt_man.current_index == active_index):
+		next_pos = position + Vector3(value * move_speed * move_dir, 0, 0);
 
 func _on_capture():
 	print("been captured")

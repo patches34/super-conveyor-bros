@@ -13,6 +13,7 @@ emission = Color(1, 1, 1, 1)
 
 [node name="Item" type="Area3D" unique_id=428435005]
 script = ExtResource("1_okjcq")
+lerp_speed = 50.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=213196976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

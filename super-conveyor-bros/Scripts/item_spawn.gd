@@ -27,11 +27,11 @@ func on_spawn():
 	
 	scroll_signal.scroll_changed.connect(instance._on_scroll)
 	
-	
 	instance.active_index = belt_index
 	instance.belt_man = level_man
 	
 	add_child(instance)
 	
 	instance.global_position = global_position + spawn_point
+	instance.next_pos = instance.position
 	
