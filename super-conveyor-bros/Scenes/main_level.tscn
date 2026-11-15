@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://brgqh41lu0bse" path="res://Prefabs/Belt.tscn" id="1_ha3dl"]
 [ext_resource type="PackedScene" uid="uid://benvrdli7tdwe" path="res://Prefabs/item_spawn.tscn" id="2_f3gli"]
-[ext_resource type="PackedScene" uid="uid://d0t6tyels0dhd" path="res://Prefabs/puncher.tscn" id="4_6l6h0"]
+[ext_resource type="PackedScene" uid="uid://31lveyxbtmfu" path="res://Prefabs/multi_puncher.tscn" id="4_o18aq"]
 [ext_resource type="SpriteFrames" uid="uid://hyle7sr4ye5r" path="res://SpriteAnim/SpriteFrames/player_beam.tres" id="7_2jcip"]
 [ext_resource type="PackedScene" uid="uid://3ocuibmw4jbr" path="res://Prefabs/item_capture.tscn" id="7_5vthg"]
 [ext_resource type="PackedScene" uid="uid://byf3ro3pjg0w" path="res://Prefabs/enemy_energy_maker.tscn" id="7_f3gli"]
@@ -12,6 +12,7 @@
 [ext_resource type="Material" uid="uid://capn3kwjarjr5" path="res://Materials/wall.tres" id="8_unus1"]
 [ext_resource type="PackedScene" uid="uid://co75ho28kogkf" path="res://Prefabs/kaiju.tscn" id="9_ha3dl"]
 [ext_resource type="PackedScene" uid="uid://d4k0lg4gcwunb" path="res://Prefabs/input.tscn" id="9_vgie2"]
+[ext_resource type="AudioStream" uid="uid://cekhnlqqlvf0v" path="res://Audio/Music/music-luminewave-american-history.mp3" id="13_o18aq"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_y3e6f"]
 
@@ -36,22 +37,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1, -9.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3703165, 0, 0)
 scroll_signal = NodePath("../../Input")
 
-[node name="Puncher" parent="Belt" unique_id=646209255 instance=ExtResource("4_6l6h0")]
+[node name="MultiPuncher" parent="Belt" unique_id=1111075601 instance=ExtResource("4_o18aq")]
 
 [node name="Belt4" parent="Belt" unique_id=915165887 instance=ExtResource("1_ha3dl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75, 0, 0)
 
-[node name="Puncher" parent="Belt/Belt4" unique_id=83122790 instance=ExtResource("4_6l6h0")]
+[node name="MultiPuncher" parent="Belt/Belt4" unique_id=504830617 instance=ExtResource("4_o18aq")]
 
 [node name="Belt7" parent="Belt" unique_id=237952539 instance=ExtResource("1_ha3dl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0, 0)
 
-[node name="Puncher" parent="Belt/Belt7" unique_id=211597459 instance=ExtResource("4_6l6h0")]
+[node name="MultiPuncher" parent="Belt/Belt7" unique_id=645156051 instance=ExtResource("4_o18aq")]
 
 [node name="Belt10" parent="Belt" unique_id=1150715829 instance=ExtResource("1_ha3dl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.25, 0, 0)
 
-[node name="Puncher" parent="Belt/Belt10" unique_id=1497738590 instance=ExtResource("4_6l6h0")]
+[node name="MultiPuncher" parent="Belt/Belt10" unique_id=59453053 instance=ExtResource("4_o18aq")]
 
 [node name="ItemCapture" parent="Belt" unique_id=192901402 node_paths=PackedStringArray("kaiju") instance=ExtResource("7_5vthg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.61953, 0, 0)
@@ -86,6 +87,12 @@ rotation_order = 0
 visible = false
 
 [node name="UI" parent="." unique_id=767468236 instance=ExtResource("8_tqiex")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1895198267]
+stream = ExtResource("13_o18aq")
+volume_db = 0.722
+autoplay = true
+parameters/looping = false
 
 [connection signal="attack" from="Belt/PlayerKaiju" to="UI" method="update_score"]
 [connection signal="energy_change" from="Belt/PlayerKaiju" to="UI" method="_on_hero_meter_change"]

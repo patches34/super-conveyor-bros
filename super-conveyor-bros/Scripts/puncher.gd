@@ -1,5 +1,6 @@
 extends Node3D
 signal break_over
+signal going_on_break
 
 var body_animator:AnimatedSprite3D
 var vfx_animator:AnimatedSprite3D
@@ -32,15 +33,16 @@ func _ready() -> void:
 	body_animator.play()
 	vfx_animator.play()
 	break_animator.visible = false
-	set_random_bro_state()
+	set_random_bro_state(false)
 	rng = RandomNumberGenerator.new()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timer -= delta
+	print(timer)
 	if timer < 0:
 		timer = rng.randf_range(min_state_time, max_state_time)
-		set_random_bro_state()
+		set_random_bro_state(false)
 
 func _on_body_frame_changed() -> void:
 	if(obj_below.size() > 0 && 
@@ -59,7 +61,8 @@ func _on_body_frame_changed() -> void:
 
 func modify_speed(new_speed: float) -> void:
 	if new_speed == 0:
-		handle_going_away()
+		#handle_going_away()
+		going_on_break.emit()
 		return
 	
 	if state_tween:
@@ -81,9 +84,12 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		obj_below = obj_below.filter(func(x): return x != area)
 		print("After:" + str(obj_below.size()))
 
-func set_random_bro_state() -> void:
+func set_random_bro_state(no_break:bool) -> void:
 	var next_state = (Enums.BroStates.values()
 		.filter(func(s): return s != bro_state).pick_random())
+	
+	if no_break && next_state == Enums.BroStates.away:
+		next_state = Enums.BroStates.normal
 	
 	if bro_state == Enums.BroStates.away && next_state != Enums.BroStates.away:
 		break_animator.visible = false

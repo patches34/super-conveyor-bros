@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://31lveyxbtmfu"]
+
+[ext_resource type="Script" uid="uid://b3nrns0hcjmqb" path="res://Scripts/multi_puncher.gd" id="1_h2qhi"]
+[ext_resource type="PackedScene" uid="uid://d0t6tyels0dhd" path="res://Prefabs/puncher.tscn" id="2_m4p6w"]
+[ext_resource type="PackedScene" uid="uid://do60w2hri3lji" path="res://Prefabs/puncher_chop.tscn" id="3_dja5l"]
+[ext_resource type="PackedScene" uid="uid://0sbe73ot033p" path="res://Prefabs/puncher_heavy.tscn" id="4_1ow7a"]
+[ext_resource type="Texture2D" uid="uid://cbvhi1vjt10ci" path="res://SpriteAnim/BreakAnim.png" id="5_m4p6w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dja5l"]
+atlas = ExtResource("5_m4p6w")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ow7a"]
+atlas = ExtResource("5_m4p6w")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xen6x"]
+atlas = ExtResource("5_m4p6w")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4803u"]
+atlas = ExtResource("5_m4p6w")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbcyr"]
+atlas = ExtResource("5_m4p6w")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7exrj"]
+atlas = ExtResource("5_m4p6w")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcox6"]
+atlas = ExtResource("5_m4p6w")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44kg8"]
+atlas = ExtResource("5_m4p6w")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7dvj"]
+atlas = ExtResource("5_m4p6w")
+region = Rect2(2048, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vb2u"]
+atlas = ExtResource("5_m4p6w")
+region = Rect2(2304, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2qhi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dja5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ow7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xen6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4803u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbcyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7exrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcox6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44kg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7dvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vb2u")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="MultiPuncher" type="Node3D" unique_id=1111075601]
+script = ExtResource("1_h2qhi")
+
+[node name="Puncher" parent="." unique_id=646209255 instance=ExtResource("2_m4p6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1920929e-07, 0)
+min_state_time = 5.0
+max_state_time = 12.0
+
+[node name="Chopper" parent="." unique_id=2055011787 instance=ExtResource("3_dja5l")]
+bro_state = 1
+min_state_time = 5.0
+max_state_time = 12.0
+
+[node name="Heavy" parent="." unique_id=1436296210 instance=ExtResource("4_1ow7a")]
+transform = Transform3D(1.2579391, 0, 0, 0, 1.2579391, 0, 0, 0, 1, 0, 1.1920929e-07, 0)
+bro_state = 1
+min_state_time = 5.0
+max_state_time = 12.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=840551188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.165527)
+
+[node name="Break" type="AnimatedSprite3D" parent="." unique_id=1905679941]
+transform = Transform3D(1.254485, 0, 0, 0, 1.254485, 0, 0, 0, 1, 0, 1.5998709, 0)
+sprite_frames = SubResource("SpriteFrames_h2qhi")
+
+[connection signal="going_on_break" from="Puncher" to="." method="_handle_break"]
+[connection signal="going_on_break" from="Chopper" to="." method="_handle_break"]
+[connection signal="going_on_break" from="Heavy" to="." method="_handle_break"]
