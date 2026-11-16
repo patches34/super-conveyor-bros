@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://b2qpofvcgi2vf" path="res://Fonts/PressStart2P-Regular.ttf" id="1_4coss"]
 [ext_resource type="Script" uid="uid://b3dp5fcyi0nxh" path="res://Scripts/game_over.gd" id="1_er4tp"]
+[ext_resource type="AudioStream" uid="uid://cekhnlqqlvf0v" path="res://Audio/Music/music-luminewave-american-history.mp3" id="3_jupbu"]
 
 [node name="GameWin" type="Control" unique_id=1448796187]
 layout_mode = 3
@@ -40,5 +41,10 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_4coss")
 theme_override_font_sizes/font_size = 36
 text = "Restart"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=627582122]
+stream = ExtResource("3_jupbu")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

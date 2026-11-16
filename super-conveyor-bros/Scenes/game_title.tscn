@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://unce6af4mhg3" path="res://Texture/T_PosterIcon.png" id="1_1utsn"]
 [ext_resource type="Script" uid="uid://b186aa467p3tx" path="res://Scripts/game_title.gd" id="1_ydcr7"]
 [ext_resource type="FontFile" uid="uid://b2qpofvcgi2vf" path="res://Fonts/PressStart2P-Regular.ttf" id="2_oetga"]
+[ext_resource type="AudioStream" uid="uid://cekhnlqqlvf0v" path="res://Audio/Music/music-luminewave-american-history.mp3" id="4_ihw60"]
 
 [node name="GameTitle" type="Control" unique_id=1100916574]
 layout_mode = 3
@@ -37,5 +38,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_oetga")
 text = "Click to Play"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1300681544]
+stream = ExtResource("4_ihw60")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
