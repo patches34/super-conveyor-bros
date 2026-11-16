@@ -1,6 +1,6 @@
 extends Node
 
-var game_scene = preload("res://Scenes/game_title.tscn")
+var game_scene:String  = "game_title"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +12,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_button_pressed() -> void:
-	game_scene = load("res://Scenes/game_title.tscn")
-	
-	get_tree().change_scene_to_packed(game_scene)
+	SceneManager.no_effect_change_scene(game_scene)

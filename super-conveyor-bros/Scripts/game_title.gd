@@ -1,6 +1,6 @@
 extends Control
 
-var game_scene = preload("res://Scenes/main_level.tscn")
+var game_scene:String = "main_level"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_packed(game_scene)
+	#get_tree().change_scene_to_packed(game_scene)
+	SceneManager.no_effect_change_scene(game_scene)
